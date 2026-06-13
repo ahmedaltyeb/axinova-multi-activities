@@ -10,14 +10,14 @@ interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType>({
-  lang: "en",
+  lang: "ar",
   setLang: () => {},
-  t: (en) => en,
-  isRtl: false,
+  t: (_en, ar) => ar,
+  isRtl: true,
 });
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("en");
+  const [lang, setLangState] = useState<Lang>("ar");
 
   const setLang = (l: Lang) => {
     setLangState(l);
@@ -26,8 +26,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
-    document.documentElement.dir = "ltr";
-    document.documentElement.lang = "en";
+    document.documentElement.dir = "rtl";
+    document.documentElement.lang = "ar";
   }, []);
 
   const t = (en: string, ar: string) => (lang === "ar" ? ar : en);
