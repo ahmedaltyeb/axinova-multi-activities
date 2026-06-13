@@ -46,45 +46,104 @@ export default function Home() {
   return (
     <div className="pt-16">
       {/* ─── Hero ─── */}
-      <section
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
-        style={{ background: "linear-gradient(135deg, hsl(220,60%,6%) 0%, hsl(220,50%,12%) 60%, hsl(220,60%,8%) 100%)" }}
-      >
-        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(hsl(220,80%,45%) 1px, transparent 1px), linear-gradient(90deg, hsl(220,80%,45%) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[hsl(220,60%,6%)]" />
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#F8FAFC] dark:bg-[hsl(220,60%,6%)]">
+
+        {/* Background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=85')"
+          }}
+        />
+
+        {/* Light mode overlay: soft white for readability */}
+        <div className="absolute inset-0 bg-white/80 dark:bg-[hsl(220,60%,6%)]/90" />
+
+        {/* Subtle grid pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.025] dark:opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "linear-gradient(hsl(220,80%,45%) 1px, transparent 1px), linear-gradient(90deg, hsl(220,80%,45%) 1px, transparent 1px)",
+            backgroundSize: "60px 60px"
+          }}
+        />
+
+        {/* Left accent bar (flips to right in RTL via logical inset-inline-start) */}
+        <div className="absolute top-[20%] bottom-[20%] start-0 w-1 bg-gradient-to-b from-transparent via-[hsl(42,90%,50%)] to-transparent opacity-70" />
+
+        {/* Bottom fade */}
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#F8FAFC] dark:from-[hsl(220,60%,6%)] to-transparent" />
 
         <div className="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
           <motion.div variants={stagger.container} initial="hidden" animate="show">
-            <motion.div variants={stagger.item} className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[hsl(42,90%,50%)]/30 bg-[hsl(42,90%,50%)]/10 text-[hsl(42,90%,50%)] text-xs font-semibold tracking-widest uppercase mb-6">
+
+            {/* Region badge */}
+            <motion.div
+              variants={stagger.item}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[hsl(220,80%,45%)]/25 bg-[hsl(220,80%,45%)]/8 dark:border-[hsl(42,90%,50%)]/30 dark:bg-[hsl(42,90%,50%)]/10 text-[hsl(220,80%,45%)] dark:text-[hsl(42,90%,50%)] text-xs font-semibold tracking-widest uppercase mb-6"
+            >
               {t("GCC & MENA Region", "منطقة الخليج والشرق الأوسط")}
             </motion.div>
-            <motion.h1 variants={stagger.item} className="text-4xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight max-w-4xl mx-auto">
+
+            {/* Headline */}
+            <motion.h1
+              variants={stagger.item}
+              className="text-4xl sm:text-6xl lg:text-7xl font-bold text-[hsl(220,60%,10%)] dark:text-white leading-tight tracking-tight max-w-4xl mx-auto"
+            >
               {t("Building the Future of", "نبني مستقبل")}{" "}
-              <span className="text-[hsl(42,90%,50%)]">{t("Enterprise", "المؤسسات")}</span>{" "}
+              <span className="text-[hsl(220,80%,45%)]">{t("Enterprise", "المؤسسات")}</span>{" "}
               {t("Across the Region", "عبر المنطقة")}
             </motion.h1>
-            <motion.p variants={stagger.item} className="mt-6 text-lg sm:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+
+            {/* Subheading */}
+            <motion.p
+              variants={stagger.item}
+              className="mt-6 text-lg sm:text-xl text-[hsl(220,20%,38%)] dark:text-white/60 max-w-2xl mx-auto leading-relaxed"
+            >
               {t(
                 "Axinova is a multi-sector powerhouse operating across Industrial, Trading, Technical Services, Logistics, and Construction — connecting capital, capability, and ambition.",
                 "أكسينوفا قوة متعددة القطاعات تعمل في الصناعة والتجارة والخدمات الفنية واللوجستيات والبناء — تربط رأس المال والقدرات والطموح."
               )}
             </motion.p>
+
+            {/* Trust indicators */}
+            <motion.div
+              variants={stagger.item}
+              className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs font-semibold uppercase tracking-widest text-[hsl(220,20%,55%)] dark:text-white/35"
+            >
+              {[
+                { en: "25+ Years", ar: "+25 سنة" },
+                { en: "12 Countries", ar: "12 دولة" },
+                { en: "8,000+ Professionals", ar: "+8,000 متخصص" },
+                { en: "ISO 9001 Certified", ar: "معتمد ISO 9001" },
+              ].map((item, i) => (
+                <span key={i} className="flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-[hsl(42,90%,50%)] inline-block" />
+                  {t(item.en, item.ar)}
+                </span>
+              ))}
+            </motion.div>
+
+            {/* CTA buttons */}
             <motion.div variants={stagger.item} className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/industries"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[hsl(42,90%,50%)] text-[hsl(220,60%,10%)] font-semibold rounded-md hover:bg-[hsl(42,90%,45%)] transition-colors"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[hsl(220,60%,10%)] dark:bg-[hsl(42,90%,50%)] text-white dark:text-[hsl(220,60%,10%)] font-semibold rounded-md hover:bg-[hsl(220,60%,15%)] dark:hover:bg-[hsl(42,90%,45%)] transition-colors shadow-sm"
                 data-testid="hero-cta-explore"
               >
                 {t("Explore Our Sectors", "استكشف قطاعاتنا")} <ArrowRight size={16} />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 border border-white/30 text-white font-semibold rounded-md hover:border-white/60 hover:bg-white/5 transition-colors"
+                className="inline-flex items-center gap-2 px-8 py-4 border-2 border-[hsl(220,60%,10%)]/20 dark:border-white/30 text-[hsl(220,60%,10%)] dark:text-white font-semibold rounded-md hover:border-[hsl(220,60%,10%)]/45 dark:hover:border-white/60 hover:bg-[hsl(220,60%,10%)]/5 dark:hover:bg-white/5 transition-colors"
                 data-testid="hero-cta-contact"
               >
                 {t("Partner With Us", "تشارك معنا")}
               </Link>
             </motion.div>
+
           </motion.div>
         </div>
 
@@ -95,9 +154,11 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
         >
-          <span className="text-[10px] text-white/30 uppercase tracking-widest">{t("Scroll", "مرر")}</span>
+          <span className="text-[10px] text-[hsl(220,60%,10%)]/30 dark:text-white/30 uppercase tracking-widest">
+            {t("Scroll", "مرر")}
+          </span>
           <motion.div
-            className="w-px h-8 bg-gradient-to-b from-white/30 to-transparent"
+            className="w-px h-8 bg-gradient-to-b from-[hsl(220,60%,10%)]/30 dark:from-white/30 to-transparent"
             animate={{ scaleY: [1, 1.4, 1] }}
             transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
           />
@@ -250,9 +311,9 @@ export default function Home() {
       </SectionWrapper>
 
       {/* ─── Partners Marquee ─── */}
-      <section className="py-14 bg-[hsl(220,60%,7%)] border-y border-white/5 overflow-hidden">
+      <section className="py-14 bg-[hsl(220,20%,97%)] dark:bg-[hsl(220,60%,7%)] border-y border-border overflow-hidden">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-          <p className="text-xs font-semibold tracking-widest uppercase text-white/25 text-center">
+          <p className="text-xs font-semibold tracking-widest uppercase text-[hsl(220,20%,55%)] dark:text-white/25 text-center">
             {t("Trusted by leading organisations", "موثوق به من قِبل المنظمات الرائدة")}
           </p>
         </div>
