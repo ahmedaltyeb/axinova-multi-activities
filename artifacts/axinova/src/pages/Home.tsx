@@ -45,8 +45,8 @@ export default function Home() {
 
   return (
     <div className="pt-16">
-      {/* ─── Hero ─── */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#F8FAFC] dark:bg-[hsl(220,60%,6%)]">
+      {/* ─── Hero — always dark navy regardless of theme ─── */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[hsl(220,60%,6%)]">
 
         {/* Background image */}
         <div
@@ -57,12 +57,12 @@ export default function Home() {
           }}
         />
 
-        {/* Light mode overlay: soft white for readability */}
-        <div className="absolute inset-0 bg-white/80 dark:bg-[hsl(220,60%,6%)]/90" />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-[hsl(220,60%,6%)]/82" />
 
         {/* Subtle grid pattern */}
         <div
-          className="absolute inset-0 opacity-[0.025] dark:opacity-[0.04]"
+          className="absolute inset-0 opacity-[0.04]"
           style={{
             backgroundImage:
               "linear-gradient(hsl(220,80%,45%) 1px, transparent 1px), linear-gradient(90deg, hsl(220,80%,45%) 1px, transparent 1px)",
@@ -70,11 +70,8 @@ export default function Home() {
           }}
         />
 
-        {/* Left accent bar (flips to right in RTL via logical inset-inline-start) */}
-        <div className="absolute top-[20%] bottom-[20%] start-0 w-1 bg-gradient-to-b from-transparent via-[hsl(42,90%,50%)] to-transparent opacity-70" />
-
-        {/* Bottom fade */}
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#F8FAFC] dark:from-[hsl(220,60%,6%)] to-transparent" />
+        {/* Bottom fade into next section */}
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[hsl(220,60%,6%)] to-transparent" />
 
         <div className="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
           <motion.div variants={stagger.container} initial="hidden" animate="show">
@@ -82,7 +79,7 @@ export default function Home() {
             {/* Region badge */}
             <motion.div
               variants={stagger.item}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[hsl(220,80%,45%)]/25 bg-[hsl(220,80%,45%)]/8 dark:border-[hsl(42,90%,50%)]/30 dark:bg-[hsl(42,90%,50%)]/10 text-[hsl(220,80%,45%)] dark:text-[hsl(42,90%,50%)] text-xs font-semibold tracking-widest uppercase mb-6"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[hsl(42,90%,50%)]/30 bg-[hsl(42,90%,50%)]/10 text-[hsl(42,90%,50%)] text-xs font-semibold tracking-widest uppercase mb-6"
             >
               {t("GCC & MENA Region", "منطقة الخليج والشرق الأوسط")}
             </motion.div>
@@ -90,17 +87,17 @@ export default function Home() {
             {/* Headline */}
             <motion.h1
               variants={stagger.item}
-              className="text-4xl sm:text-6xl lg:text-7xl font-bold text-[hsl(220,60%,10%)] dark:text-white leading-tight tracking-tight max-w-4xl mx-auto"
+              className="text-4xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight max-w-4xl mx-auto"
             >
               {t("Building the Future of", "نبني مستقبل")}{" "}
-              <span className="text-[hsl(220,80%,45%)]">{t("Enterprise", "المؤسسات")}</span>{" "}
+              <span className="text-[hsl(42,90%,50%)]">{t("Enterprise", "المؤسسات")}</span>{" "}
               {t("Across the Region", "عبر المنطقة")}
             </motion.h1>
 
             {/* Subheading */}
             <motion.p
               variants={stagger.item}
-              className="mt-6 text-lg sm:text-xl text-[hsl(220,20%,38%)] dark:text-white/60 max-w-2xl mx-auto leading-relaxed"
+              className="mt-6 text-lg sm:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed"
             >
               {t(
                 "Axinova is a multi-sector powerhouse operating across Industrial, Trading, Technical Services, Logistics, and Construction — connecting capital, capability, and ambition.",
@@ -111,7 +108,7 @@ export default function Home() {
             {/* Trust indicators */}
             <motion.div
               variants={stagger.item}
-              className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs font-semibold uppercase tracking-widest text-[hsl(220,20%,55%)] dark:text-white/35"
+              className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs font-semibold uppercase tracking-widest text-white/35"
             >
               {[
                 { en: "25+ Years", ar: "+25 سنة" },
@@ -130,14 +127,14 @@ export default function Home() {
             <motion.div variants={stagger.item} className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/industries"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[hsl(220,60%,10%)] dark:bg-[hsl(42,90%,50%)] text-white dark:text-[hsl(220,60%,10%)] font-semibold rounded-md hover:bg-[hsl(220,60%,15%)] dark:hover:bg-[hsl(42,90%,45%)] transition-colors shadow-sm"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[hsl(42,90%,50%)] text-[hsl(220,60%,10%)] font-semibold rounded-md hover:bg-[hsl(42,90%,45%)] transition-colors"
                 data-testid="hero-cta-explore"
               >
                 {t("Explore Our Sectors", "استكشف قطاعاتنا")} <ArrowRight size={16} />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 border-2 border-[hsl(220,60%,10%)]/20 dark:border-white/30 text-[hsl(220,60%,10%)] dark:text-white font-semibold rounded-md hover:border-[hsl(220,60%,10%)]/45 dark:hover:border-white/60 hover:bg-[hsl(220,60%,10%)]/5 dark:hover:bg-white/5 transition-colors"
+                className="inline-flex items-center gap-2 px-8 py-4 border border-white/30 text-white font-semibold rounded-md hover:border-white/60 hover:bg-white/5 transition-colors"
                 data-testid="hero-cta-contact"
               >
                 {t("Partner With Us", "تشارك معنا")}
@@ -154,11 +151,11 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
         >
-          <span className="text-[10px] text-[hsl(220,60%,10%)]/30 dark:text-white/30 uppercase tracking-widest">
+          <span className="text-[10px] text-white/30 uppercase tracking-widest">
             {t("Scroll", "مرر")}
           </span>
           <motion.div
-            className="w-px h-8 bg-gradient-to-b from-[hsl(220,60%,10%)]/30 dark:from-white/30 to-transparent"
+            className="w-px h-8 bg-gradient-to-b from-white/30 to-transparent"
             animate={{ scaleY: [1, 1.4, 1] }}
             transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
           />
