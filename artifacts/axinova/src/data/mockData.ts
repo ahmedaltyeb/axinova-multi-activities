@@ -365,7 +365,20 @@ export const mockProducts = [
   { id: "pr15", name: "Automated Gate Systems", category: "Logistics Equipment", description: "RFID-integrated gate management systems for logistics parks and ports.", specs: "RFID + ANPR | 99.8% uptime SLA" }
 ];
 
-export const mockPartners = [
-  "Saudi Aramco", "ADNOC", "DP World", "SABIC", "Qatar Petroleum",
-  "Bechtel", "Honeywell", "Siemens", "ABB Group", "Emerson"
+export const mockPartners: { name: string; logo: string }[] = [
+  { name: "Saudi Aramco",     logo: "https://logo.clearbit.com/aramco.com" },
+  { name: "ADNOC",            logo: "https://logo.clearbit.com/adnoc.ae" },
+  { name: "DP World",         logo: "https://logo.clearbit.com/dpworld.com" },
+  { name: "SABIC",            logo: "https://logo.clearbit.com/sabic.com" },
+  { name: "QatarEnergy",      logo: "https://logo.clearbit.com/qatarenergy.qa" },
+  { name: "Bechtel",          logo: "https://logo.clearbit.com/bechtel.com" },
+  { name: "Honeywell",        logo: "https://logo.clearbit.com/honeywell.com" },
+  { name: "Siemens",          logo: "https://logo.clearbit.com/siemens.com" },
+  { name: "ABB",              logo: "https://logo.clearbit.com/abb.com" },
+  { name: "Emerson",          logo: "https://logo.clearbit.com/emerson.com" },
+  { name: "Schneider Electric", logo: "https://logo.clearbit.com/se.com" },
+  { name: "Fluor",            logo: "https://logo.clearbit.com/fluor.com" },
+  { name: "Wood Group",       logo: "https://logo.clearbit.com/woodplc.com" },
+  { name: "Mott MacDonald",   logo: "https://logo.clearbit.com/mottmac.com" },
+  { name: "Jacobs",           logo: "https://logo.clearbit.com/jacobs.com" },
 ];

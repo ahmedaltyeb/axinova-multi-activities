@@ -308,13 +308,17 @@ export default function Home() {
       </SectionWrapper>
 
       {/* ─── Partners Marquee ─── */}
-      <section className="py-14 bg-[hsl(220,20%,97%)] dark:bg-[hsl(220,60%,7%)] border-y border-border overflow-hidden">
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-          <p className="text-xs font-semibold tracking-widest uppercase text-[hsl(220,20%,55%)] dark:text-white/25 text-center">
-            {t("Trusted by leading organisations", "موثوق به من قِبل المنظمات الرائدة")}
-          </p>
+      <section className="py-14 bg-[hsl(220,20%,97%)] dark:bg-[hsl(220,60%,7%)] border-y border-border">
+        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center">
+          <div className="flex items-center justify-center gap-4">
+            <div className="h-px flex-1 max-w-[80px] bg-border" />
+            <p className="text-xs font-semibold tracking-widest uppercase text-[hsl(220,20%,55%)] dark:text-white/30">
+              {t("Trusted by leading organisations", "موثوق به من قِبل المنظمات الرائدة")}
+            </p>
+            <div className="h-px flex-1 max-w-[80px] bg-border" />
+          </div>
         </div>
-        <Marquee items={mockPartners} speed={28} />
+        <Marquee items={mockPartners} speed={30} />
       </section>
 
       {/* ─── Final CTA ─── */}
