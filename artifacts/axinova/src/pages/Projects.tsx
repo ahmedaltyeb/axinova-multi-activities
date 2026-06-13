@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Calendar } from "lucide-react";
+import { MapPin, Calendar, CheckCircle, Clock, LayoutGrid } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
-import SectionWrapper, { SectionHeading } from "@/components/SectionWrapper";
+import SectionWrapper from "@/components/SectionWrapper";
 import { mockProjects } from "@/data/mockData";
 
 const categories = ["All", "Industrial", "Logistics", "Technical Services", "Construction", "Trading"];
@@ -12,9 +12,12 @@ export default function Projects() {
   const [active, setActive] = useState("All");
 
   const filtered = active === "All" ? mockProjects : mockProjects.filter((p) => p.category === active);
+  const completedCount = mockProjects.filter((p) => p.status === "completed").length;
+  const ongoingCount = mockProjects.filter((p) => p.status === "ongoing").length;
 
   return (
     <div className="pt-16">
+      {/* Hero */}
       <section className="bg-[hsl(220,60%,8%)] py-28 px-4 sm:px-6 lg:px-8">
         <div className="max-w-screen-xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
@@ -29,6 +32,30 @@ export default function Projects() {
               )}
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Stats bar */}
+      <section className="border-b border-border bg-card px-4 sm:px-6 lg:px-8">
+        <div className="max-w-screen-xl mx-auto">
+          <div className="grid grid-cols-3 divide-x divide-border">
+            {[
+              { icon: LayoutGrid, value: "500+", label_en: "Total Projects", label_ar: "إجمالي المشاريع" },
+              { icon: CheckCircle, value: `${completedCount}`, label_en: "Shown as Completed", label_ar: "منجز معروض" },
+              { icon: Clock, value: `${ongoingCount}`, label_en: "Currently Ongoing", label_ar: "جارٍ حالياً" },
+            ].map((s, i) => {
+              const Icon = s.icon;
+              return (
+                <div key={i} className="flex items-center gap-4 py-6 px-6">
+                  <Icon size={20} className="text-[hsl(220,80%,45%)] shrink-0" />
+                  <div>
+                    <div className="text-xl font-bold text-foreground">{s.value}</div>
+                    <div className="text-xs text-muted-foreground mt-0.5">{t(s.label_en, s.label_ar)}</div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -47,6 +74,11 @@ export default function Projects() {
               data-testid={`project-filter-${cat.toLowerCase().replace(/ /g, "-")}`}
             >
               {cat}
+              {cat !== "All" && (
+                <span className="ms-1.5 text-xs opacity-60">
+                  ({mockProjects.filter((p) => p.category === cat).length})
+                </span>
+              )}
             </button>
           ))}
         </div>
@@ -58,7 +90,7 @@ export default function Projects() {
               key={project.id}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: i * 0.06 }}
+              transition={{ duration: 0.35, delay: i * 0.05 }}
               whileHover={{ y: -4 }}
               className="group rounded-xl overflow-hidden border border-border bg-card"
               data-testid={`project-card-${project.id}`}
@@ -79,21 +111,23 @@ export default function Projects() {
                 </span>
               </div>
               <div className="p-5">
-                <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
-                  <span className="font-medium text-[hsl(220,80%,45%)]">{project.category}</span>
-                  <span>·</span>
-                  <MapPin size={11} />
-                  <span>{project.location}</span>
-                  <span>·</span>
-                  <Calendar size={11} />
-                  <span>{project.year}</span>
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground mb-2">
+                  <span className="font-semibold text-[hsl(220,80%,45%)]">{project.category}</span>
+                  <span className="flex items-center gap-1"><MapPin size={10} /> {project.location}</span>
+                  <span className="flex items-center gap-1"><Calendar size={10} /> {project.year}</span>
                 </div>
-                <h3 className="text-base font-semibold text-foreground mb-2">{project.title}</h3>
+                <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-[hsl(220,80%,45%)] transition-colors">{project.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p>
               </div>
             </motion.div>
           ))}
         </div>
+
+        {filtered.length === 0 && (
+          <div className="text-center py-20 text-muted-foreground">
+            {t("No projects found in this category.", "لا توجد مشاريع في هذه الفئة.")}
+          </div>
+        )}
       </SectionWrapper>
     </div>
   );

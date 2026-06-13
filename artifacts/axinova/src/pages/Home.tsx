@@ -1,9 +1,10 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight, Factory, Globe, Wrench, Truck, Building2, ChevronRight } from "lucide-react";
+import { ArrowRight, Factory, Globe, Wrench, Truck, Building2, ChevronRight, Quote } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
 import SectionWrapper, { SectionHeading } from "@/components/SectionWrapper";
 import StatCounter from "@/components/StatCounter";
+import Marquee from "@/components/Marquee";
 import { mockSectors, mockProjects, mockStats, mockPartners } from "@/data/mockData";
 
 const iconMap: Record<string, React.FC<{ size?: number; className?: string }>> = {
@@ -15,18 +16,41 @@ const stagger = {
   item: { hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } } }
 };
 
+const testimonials = [
+  {
+    quote_en: "Axinova delivered the Jubail facility ahead of schedule and well within budget. Their integrated model — engineering, procurement, and construction under one roof — made all the difference.",
+    quote_ar: "قدّمت أكسينوفا منشأة الجبيل قبل الموعد المحدد وفي حدود الميزانية. نموذجها المتكامل — الهندسة والمشتريات والبناء تحت سقف واحد — أحدث الفارق الكبير.",
+    author: "Fahad Al-Qahtani",
+    title_en: "VP Projects, Saudi Industrial Development Authority",
+    title_ar: "نائب رئيس المشاريع، هيئة التطوير الصناعي السعودية"
+  },
+  {
+    quote_en: "Their logistics division gave us visibility and control over cross-border shipments that we simply didn't have before. Operations across six countries, seamlessly managed.",
+    quote_ar: "منحنا قسم اللوجستيات رؤية وتحكماً في الشحنات عبر الحدود لم نكن نمتلكه من قبل. عمليات عبر ست دول، يُدارها بسلاسة.",
+    author: "Meera Al-Sulaiti",
+    title_en: "Chief Supply Chain Officer, Gulf Retail Group",
+    title_ar: "مدير سلسلة التوريد، مجموعة الخليج للتجزئة"
+  },
+  {
+    quote_en: "We've partnered with Axinova across three major infrastructure contracts. Their technical teams are world-class and their commitment to safety is unmatched in the region.",
+    quote_ar: "شاركنا مع أكسينوفا في ثلاثة عقود بنية تحتية كبرى. فرقهم الفنية من الدرجة العالمية والتزامهم بالسلامة لا مثيل له في المنطقة.",
+    author: "James Harrington",
+    title_en: "Regional Director, Bechtel Middle East",
+    title_ar: "المدير الإقليمي، بكتل الشرق الأوسط"
+  }
+];
+
 export default function Home() {
   const { t } = useLang();
 
   return (
     <div className="pt-16">
-      {/* Hero */}
+      {/* ─── Hero ─── */}
       <section
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
         style={{ background: "linear-gradient(135deg, hsl(220,60%,6%) 0%, hsl(220,50%,12%) 60%, hsl(220,60%,8%) 100%)" }}
       >
-        {/* Background grid */}
-        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "linear-gradient(hsl(220,80%,45%) 1px, transparent 1px), linear-gradient(90deg, hsl(220,80%,45%) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(hsl(220,80%,45%) 1px, transparent 1px), linear-gradient(90deg, hsl(220,80%,45%) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[hsl(220,60%,6%)]" />
 
         <div className="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
@@ -42,7 +66,7 @@ export default function Home() {
             <motion.p variants={stagger.item} className="mt-6 text-lg sm:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
               {t(
                 "Axinova is a multi-sector powerhouse operating across Industrial, Trading, Technical Services, Logistics, and Construction — connecting capital, capability, and ambition.",
-                "أكسينوفا قوة متعددة القطاعات تعمل في الصناعة والتجارة والخدمات الفنية واللوجستيات والبناء."
+                "أكسينوفا قوة متعددة القطاعات تعمل في الصناعة والتجارة والخدمات الفنية واللوجستيات والبناء — تربط رأس المال والقدرات والطموح."
               )}
             </motion.p>
             <motion.div variants={stagger.item} className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
@@ -63,9 +87,24 @@ export default function Home() {
             </motion.div>
           </motion.div>
         </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+        >
+          <span className="text-[10px] text-white/30 uppercase tracking-widest">{t("Scroll", "مرر")}</span>
+          <motion.div
+            className="w-px h-8 bg-gradient-to-b from-white/30 to-transparent"
+            animate={{ scaleY: [1, 1.4, 1] }}
+            transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
+          />
+        </motion.div>
       </section>
 
-      {/* Sector Cards */}
+      {/* ─── Sector Cards ─── */}
       <SectionWrapper>
         <SectionHeading
           title={t("Our Five Sectors", "قطاعاتنا الخمسة")}
@@ -96,11 +135,10 @@ export default function Home() {
               </motion.div>
             );
           })}
-          {/* 5th sector fills last slot on 3-col */}
         </div>
       </SectionWrapper>
 
-      {/* Company Overview */}
+      {/* ─── Company Overview ─── */}
       <SectionWrapper dark>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
@@ -135,23 +173,18 @@ export default function Home() {
         </div>
       </SectionWrapper>
 
-      {/* Stats */}
+      {/* ─── Stats ─── */}
       <section className="py-20 bg-[hsl(220,80%,45%)]">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
             {mockStats.map((stat) => (
-              <StatCounter
-                key={stat.label}
-                value={stat.value}
-                suffix={stat.suffix}
-                label={stat.label}
-              />
+              <StatCounter key={stat.label} value={stat.value} suffix={stat.suffix} label={t(stat.label, stat.arabicLabel)} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Featured Projects */}
+      {/* ─── Featured Projects ─── */}
       <SectionWrapper>
         <SectionHeading
           title={t("Featured Projects", "المشاريع المميزة")}
@@ -170,14 +203,8 @@ export default function Home() {
               data-testid={`project-card-${project.id}`}
             >
               <div className="relative aspect-video overflow-hidden bg-muted">
-                <img
-                  src={project.imageUrl}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <span className={`absolute top-3 end-3 px-2 py-0.5 text-xs font-semibold rounded-full ${
-                  project.status === "completed" ? "bg-green-500/90 text-white" : "bg-[hsl(42,90%,50%)] text-[hsl(220,60%,10%)]"
-                }`}>
+                <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <span className={`absolute top-3 end-3 px-2 py-0.5 text-xs font-semibold rounded-full ${project.status === "completed" ? "bg-green-500/90 text-white" : "bg-[hsl(42,90%,50%)] text-[hsl(220,60%,10%)]"}`}>
                   {t(project.status === "completed" ? "Completed" : "Ongoing", project.status === "completed" ? "منجز" : "جاري")}
                 </span>
               </div>
@@ -189,61 +216,63 @@ export default function Home() {
           ))}
         </div>
         <div className="mt-10 text-center">
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-border rounded-md text-sm font-medium text-foreground hover:border-[hsl(220,80%,45%)] hover:text-[hsl(220,80%,45%)] transition-colors"
-            data-testid="home-view-all-projects"
-          >
+          <Link href="/projects" className="inline-flex items-center gap-2 px-6 py-3 border border-border rounded-md text-sm font-medium text-foreground hover:border-[hsl(220,80%,45%)] hover:text-[hsl(220,80%,45%)] transition-colors" data-testid="home-view-all-projects">
             {t("View All Projects", "جميع المشاريع")} <ArrowRight size={14} />
           </Link>
         </div>
       </SectionWrapper>
 
-      {/* Partners */}
+      {/* ─── Testimonials ─── */}
       <SectionWrapper dark>
-        <SectionHeading title={t("Trusted Partners", "شركاؤنا الموثوقون")} light />
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px border border-white/10 rounded-lg overflow-hidden">
-          {mockPartners.map((partner, i) => (
+        <SectionHeading title={t("What Our Partners Say", "ماذا يقول شركاؤنا")} light subtitle={t("Trusted by governments, enterprises, and global partners across the GCC.", "موثوق به من قِبل الحكومات والمؤسسات والشركاء العالميين في منطقة الخليج.")} />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {testimonials.map((item, i) => (
             <motion.div
-              key={partner}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.06 }}
-              className="flex items-center justify-center py-8 px-6 bg-[hsl(220,60%,10%)] hover:bg-[hsl(220,60%,13%)] transition-colors"
-              data-testid={`partner-logo-${i}`}
+              transition={{ delay: i * 0.12 }}
+              className="relative p-6 rounded-xl border border-white/10 bg-[hsl(220,60%,10%)] flex flex-col"
+              data-testid={`testimonial-${i}`}
             >
-              <span className="text-sm font-semibold text-white/40 text-center">{partner}</span>
+              <Quote size={24} className="text-[hsl(42,90%,50%)]/40 mb-4 shrink-0" />
+              <p className="text-white/70 text-sm leading-relaxed flex-1 italic">
+                "{t(item.quote_en, item.quote_ar)}"
+              </p>
+              <div className="mt-6 pt-4 border-t border-white/10">
+                <p className="text-sm font-semibold text-white">{item.author}</p>
+                <p className="text-xs text-white/40 mt-0.5">{t(item.title_en, item.title_ar)}</p>
+              </div>
             </motion.div>
           ))}
         </div>
       </SectionWrapper>
 
-      {/* Final CTA */}
+      {/* ─── Partners Marquee ─── */}
+      <section className="py-14 bg-[hsl(220,60%,7%)] border-y border-white/5 overflow-hidden">
+        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+          <p className="text-xs font-semibold tracking-widest uppercase text-white/25 text-center">
+            {t("Trusted by leading organisations", "موثوق به من قِبل المنظمات الرائدة")}
+          </p>
+        </div>
+        <Marquee items={mockPartners} speed={28} />
+      </section>
+
+      {/* ─── Final CTA ─── */}
       <section className="py-24 bg-[hsl(42,90%,50%)]">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-[hsl(220,60%,10%)]">
             {t("Ready to Build Something Exceptional?", "هل أنت مستعد لبناء شيء استثنائي؟")}
           </h2>
           <p className="mt-4 text-[hsl(220,60%,10%)]/70 text-lg max-w-xl mx-auto">
-            {t(
-              "Whether you're an investor, a government client, or an industrial partner — let's talk.",
-              "سواء كنت مستثمراً أو عميلاً حكومياً أو شريكاً صناعياً — فلنتحدث."
-            )}
+            {t("Whether you're an investor, a government client, or an industrial partner — let's talk.", "سواء كنت مستثمراً أو عميلاً حكومياً أو شريكاً صناعياً — فلنتحدث.")}
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[hsl(220,60%,10%)] text-white font-semibold rounded-md hover:bg-[hsl(220,60%,14%)] transition-colors"
-              data-testid="cta-contact"
-            >
+            <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-[hsl(220,60%,10%)] text-white font-semibold rounded-md hover:bg-[hsl(220,60%,14%)] transition-colors" data-testid="cta-contact">
               {t("Get in Touch", "تواصل معنا")} <ArrowRight size={16} />
             </Link>
-            <Link
-              href="/investors"
-              className="inline-flex items-center gap-2 px-8 py-4 border-2 border-[hsl(220,60%,10%)]/30 text-[hsl(220,60%,10%)] font-semibold rounded-md hover:border-[hsl(220,60%,10%)]/60 transition-colors"
-              data-testid="cta-investors"
-            >
+            <Link href="/investors" className="inline-flex items-center gap-2 px-8 py-4 border-2 border-[hsl(220,60%,10%)]/30 text-[hsl(220,60%,10%)] font-semibold rounded-md hover:border-[hsl(220,60%,10%)]/60 transition-colors" data-testid="cta-investors">
               {t("Investor Relations", "علاقات المستثمرين")}
             </Link>
           </div>

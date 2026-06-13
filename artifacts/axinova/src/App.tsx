@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { ScrollRestorer, ScrollToTopButton } from "@/components/ScrollToTop";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Industries from "@/pages/Industries";
@@ -22,6 +23,7 @@ const queryClient = new QueryClient();
 function Router() {
   return (
     <>
+      <ScrollRestorer />
       <Navbar />
       <main>
         <Switch>
@@ -39,6 +41,7 @@ function Router() {
         </Switch>
       </main>
       <Footer />
+      <ScrollToTopButton />
     </>
   );
 }

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Building2, TrendingUp, Users, FileText } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
-import SectionWrapper, { SectionHeading } from "@/components/SectionWrapper";
+import SectionWrapper from "@/components/SectionWrapper";
 
 type FormType = "general" | "quote" | "investor" | "career";
 
@@ -13,10 +13,19 @@ const tabs: { id: FormType; en: string; ar: string }[] = [
   { id: "career", en: "Career Application", ar: "طلب وظيفة" },
 ];
 
+const deptCards = [
+  { icon: Building2, tab: "general" as FormType, en: "Corporate Affairs", ar: "الشؤون المؤسسية", email: "info@axinova.com", desc_en: "General inquiries, partnerships, media", desc_ar: "الاستفسارات العامة، الشراكات، الإعلام" },
+  { icon: FileText, tab: "quote" as FormType, en: "Commercial", ar: "التجاري", email: "commercial@axinova.com", desc_en: "Quotes, project scopes, procurement", desc_ar: "عروض الأسعار، نطاق المشاريع، المشتريات" },
+  { icon: TrendingUp, tab: "investor" as FormType, en: "Investor Relations", ar: "علاقات المستثمرين", email: "ir@axinova.com", desc_en: "Investment, partnerships, pre-IPO", desc_ar: "الاستثمار، الشراكات، ما قبل الاكتتاب" },
+  { icon: Users, tab: "career" as FormType, en: "Talent & HR", ar: "المواهب والموارد البشرية", email: "careers@axinova.com", desc_en: "Job applications, graduate program", desc_ar: "طلبات التوظيف، برنامج الخريجين" },
+];
+
 function FormSuccess({ onReset, t }: { onReset: () => void; t: (a: string, b: string) => string }) {
   return (
     <div className="py-12 text-center">
-      <div className="text-5xl text-[hsl(42,90%,50%)] mb-3">✓</div>
+      <div className="w-14 h-14 rounded-full bg-emerald-500/10 flex items-center justify-center mx-auto mb-4">
+        <span className="text-2xl text-emerald-500">✓</span>
+      </div>
       <h3 className="text-lg font-semibold text-foreground">{t("Message Sent", "تم الإرسال")}</h3>
       <p className="text-muted-foreground mt-2 text-sm">{t("Our team will respond within 1–2 business days.", "سيرد فريقنا خلال 1-2 يوم عمل.")}</p>
       <button onClick={onReset} className="mt-6 text-sm text-[hsl(220,80%,45%)] hover:underline" data-testid="btn-reset-form">
@@ -42,6 +51,7 @@ export default function Contact() {
 
   return (
     <div className="pt-16">
+      {/* Hero */}
       <section className="bg-[hsl(220,60%,8%)] py-28 px-4 sm:px-6 lg:px-8">
         <div className="max-w-screen-xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
@@ -50,13 +60,50 @@ export default function Contact() {
               {t("Contact Axinova", "تواصل مع أكسينوفا")}
             </h1>
             <p className="mt-6 text-lg text-white/60 max-w-2xl">
-              {t("Reach our teams across Corporate, Commercial, Investor Relations, and Careers.", "تواصل مع فرقنا في الشركات والتجارة وعلاقات المستثمرين والوظائف.")}
+              {t("Reach our teams across Corporate, Commercial, Investor Relations, and Careers.", "تواصل مع فرقنا في الشؤون المؤسسية والتجارة وعلاقات المستثمرين والوظائف.")}
             </p>
           </motion.div>
         </div>
       </section>
 
-      <SectionWrapper>
+      {/* Department Quick-Contact Cards */}
+      <section className="px-4 sm:px-6 lg:px-8 py-10 border-b border-border bg-card">
+        <div className="max-w-screen-xl mx-auto">
+          <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-6">
+            {t("Select a department", "اختر قسماً")}
+          </p>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {deptCards.map((dept, i) => {
+              const Icon = dept.icon;
+              const isActive = activeTab === dept.tab;
+              return (
+                <motion.button
+                  key={dept.tab}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.06 }}
+                  onClick={() => { setActiveTab(dept.tab); setSubmitted(false); document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" }); }}
+                  className={`text-start p-4 rounded-xl border transition-all ${
+                    isActive
+                      ? "border-[hsl(220,80%,45%)] bg-[hsl(220,80%,45%)]/5"
+                      : "border-border hover:border-[hsl(220,80%,45%)]/50"
+                  }`}
+                  data-testid={`dept-card-${dept.tab}`}
+                >
+                  <div className={`w-9 h-9 rounded-lg flex items-center justify-center mb-3 ${isActive ? "bg-[hsl(220,80%,45%)]/15" : "bg-muted"}`}>
+                    <Icon size={16} className={isActive ? "text-[hsl(220,80%,45%)]" : "text-muted-foreground"} />
+                  </div>
+                  <div className="text-sm font-semibold text-foreground mb-0.5">{t(dept.en, dept.ar)}</div>
+                  <div className="text-xs text-muted-foreground">{t(dept.desc_en, dept.desc_ar)}</div>
+                  <div className="text-xs text-[hsl(220,80%,45%)] mt-2">{dept.email}</div>
+                </motion.button>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <SectionWrapper id="contact-form">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Contact Info */}
           <div>
@@ -67,7 +114,7 @@ export default function Contact() {
                 { city_en: "Dubai", city_ar: "دبي", address: "DIFC, Gate Village, Building 5, Dubai, UAE" },
                 { city_en: "Abu Dhabi", city_ar: "أبوظبي", address: "Al Maryah Island, ADGM Square, Abu Dhabi, UAE" },
               ].map((office) => (
-                <div key={office.city_en} className="flex gap-3" data-testid={`office-${office.city_en.toLowerCase().replace(/ /g, "-")}`}>
+                <div key={office.city_en} className="flex gap-3" data-testid={`office-${office.city_en.toLowerCase().replace(/[ —]/g, "-")}`}>
                   <MapPin size={16} className="text-[hsl(42,90%,50%)] shrink-0 mt-0.5" />
                   <div>
                     <p className="text-sm font-semibold text-foreground">{t(office.city_en, office.city_ar)}</p>
@@ -77,17 +124,17 @@ export default function Contact() {
               ))}
             </div>
 
-            <div className="mt-8 space-y-4 text-sm">
+            <div className="mt-8 space-y-4 text-sm border-t border-border pt-6">
               <div className="flex items-center gap-3 text-muted-foreground">
-                <Phone size={14} className="text-[hsl(42,90%,50%)]" />
+                <Phone size={14} className="text-[hsl(42,90%,50%)] shrink-0" />
                 +966 11 000 0000
               </div>
               <div className="flex items-center gap-3 text-muted-foreground">
-                <Mail size={14} className="text-[hsl(42,90%,50%)]" />
+                <Mail size={14} className="text-[hsl(42,90%,50%)] shrink-0" />
                 info@axinova.com
               </div>
               <div className="flex items-center gap-3 text-muted-foreground">
-                <Clock size={14} className="text-[hsl(42,90%,50%)]" />
+                <Clock size={14} className="text-[hsl(42,90%,50%)] shrink-0" />
                 {t("Sun–Thu: 8:00 AM – 5:00 PM AST", "الأحد–الخميس: 8:00 ص – 5:00 م")}
               </div>
             </div>
