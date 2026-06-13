@@ -1,0 +1,521 @@
+
+
+Build a complete corporate website UI for Axinova Multi Activities Company using React.
+
+
+
+---
+
+
+
+## 1. Project Goal
+
+
+
+Build a high-quality bilingual corporate website UI for Axinova Multi Activities Company.
+
+
+
+Axinova is a multi-sector organization in GCC and MENA.
+
+
+
+Sectors:
+
+
+
+* Industrial
+
+* Trading
+
+* Technical Services
+
+* Logistics
+
+* Construction
+
+
+
+Target users:
+
+
+
+* Investors
+
+* Government clients
+
+* B2B companies
+
+* Industrial partners
+
+
+
+Goal:
+
+Create a professional corporate website UI that shows scale, trust, and enterprise identity.
+
+
+
+---
+
+
+
+## 2. Tech Stack (Lovable React Output)
+
+
+
+Use:
+
+
+
+* React (functional components)
+
+* Tailwind CSS
+
+* Framer Motion for animations
+
+* Component-based architecture
+
+
+
+Do not use:
+
+
+
+* Next.js specific features
+
+* Backend logic
+
+* Database
+
+* API routes
+
+
+
+Keep output frontend only.
+
+
+
+---
+
+
+
+## 3. Design Rules
+
+
+
+* Mobile-first design
+
+* Responsive for all screen sizes
+
+* Corporate and premium style
+
+* Clean spacing and grid layout
+
+* RTL support for Arabic + LTR for English
+
+* Use logical spacing only (no left/right fixed layout assumptions)
+
+* Modern enterprise UI style
+
+
+
+---
+
+
+
+## 4. Pages to Build
+
+
+
+Create these pages:
+
+
+
+* Home
+
+* About
+
+* Industries
+
+* Services
+
+* Products
+
+* Projects
+
+* Investors
+
+* News
+
+* Careers
+
+* Contact
+
+
+
+Each page must be fully designed UI only.
+
+
+
+---
+
+
+
+## 5. Home Page Structure
+
+
+
+Sections:
+
+
+
+* Hero section with headline, subheadline, 2 CTA buttons
+
+* 5 sector cards grid
+
+* Company overview section
+
+* Statistics section with animated counters
+
+* Featured projects section
+
+* Partner logo strip
+
+* Final call to action banner
+
+
+
+---
+
+
+
+## 6. Industries Page
+
+
+
+Sections:
+
+
+
+* Hero section
+
+* 5 sector detailed blocks:
+
+
+
+  * Industrial
+
+  * Trading
+
+  * Technical Services
+
+  * Logistics
+
+  * Construction
+
+* Each sector includes:
+
+
+
+  * Title
+
+  * Description
+
+  * Activity list
+
+  * Target client type
+
+
+
+---
+
+
+
+## 7. Services Page
+
+
+
+* Hero section
+
+* Services grouped by sector
+
+* Simple process section (How we work)
+
+* Call to action section
+
+
+
+---
+
+
+
+## 8. Products Page
+
+
+
+* Product category filters UI
+
+* Product grid layout
+
+* Product category detail UI
+
+
+
+No backend logic, only UI structure.
+
+
+
+---
+
+
+
+## 9. Projects Page
+
+
+
+* Filterable project grid UI
+
+* Project card design
+
+* Project detail page layout UI
+
+
+
+---
+
+
+
+## 10. Investors Page
+
+
+
+* Investor hero section
+
+* Market opportunity section
+
+* Growth roadmap timeline UI
+
+* Investor contact form UI (no backend)
+
+
+
+---
+
+
+
+## 11. News Page
+
+
+
+* Article grid UI
+
+* Category filter UI
+
+* Article detail layout UI
+
+
+
+---
+
+
+
+## 12. Careers Page
+
+
+
+* Job listing cards
+
+* Job detail layout
+
+* Application form UI with fields:
+
+
+
+  * Name
+
+  * Email
+
+  * Phone
+
+  * CV upload
+
+  * Message
+
+
+
+---
+
+
+
+## 13. Contact Page
+
+
+
+Include 4 separate form UIs:
+
+
+
+* General inquiry form
+
+* Quote request form
+
+* Investor inquiry form
+
+* Career application form
+
+
+
+All forms UI only, no backend.
+
+
+
+---
+
+
+
+## 14. UI Components to Generate
+
+
+
+Create reusable components:
+
+
+
+* Button (primary, secondary, outline)
+
+* Card (default, feature, sector)
+
+* Input fields
+
+* Textarea
+
+* Select dropdown
+
+* Navbar (desktop + mobile)
+
+* Footer (multi-column corporate)
+
+* Section wrapper layout
+
+
+
+All components must be reusable and clean.
+
+
+
+---
+
+
+
+## 15. Data Structure (Mock UI Data)
+
+
+
+Use mock data for:
+
+
+
+* sectors
+
+* services
+
+* projects
+
+* products
+
+* news
+
+* careers
+
+* team
+
+* statistics
+
+
+
+No backend connection.
+
+
+
+---
+
+
+
+## 16. Animation Rules
+
+
+
+Use Framer Motion for:
+
+
+
+* Hero fade-in
+
+* Card hover effects
+
+* Section scroll animations
+
+* Counter animations for statistics
+
+
+
+Keep animations smooth and subtle.
+
+
+
+---
+
+
+
+## 17. Corporate UI Style
+
+
+
+Design style:
+
+
+
+* Premium corporate look
+
+* Clean grid system
+
+* Strong typography hierarchy
+
+* Dark navy + neutral tones
+
+* Minimal but professional spacing
+
+* High trust visual layout
+
+
+
+---
+
+
+
+## 18. Output Requirement
+
+
+
+Generate:
+
+
+
+* Complete React project structure
+
+* All pages UI
+
+* Reusable components
+
+* Responsive design
+
+* Clean folder structure
+
+* Mock data included
+
+* Production-quality UI system
+
+
+
+No backend code. 

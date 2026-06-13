@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Axinova Corporate Website"
+version = "1.0.0"
+id = "artifacts/axinova"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18790
+
+[services.development]
+run = "pnpm --filter @workspace/axinova run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/axinova", "run", "build" ]
+publicDir = "artifacts/axinova/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18790"
+BASE_PATH = "/"
