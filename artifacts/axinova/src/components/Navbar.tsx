@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
+import { useTheme } from "@/context/ThemeContext";
 
 const navLinks = [
   { href: "/", en: "Home", ar: "الرئيسية" },
@@ -19,10 +20,11 @@ const navLinks = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { lang, setLang, t } = useLang();
+  const { isDark, toggleTheme } = useTheme();
   const [location] = useLocation();
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-[hsl(220,60%,8%)] border-b border-white/10 shadow-lg">
+    <header className="fixed inset-x-0 top-0 z-50 bg-[hsl(220,60%,14%)] dark:bg-[hsl(220,60%,8%)] border-b border-white/10 shadow-lg">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -51,7 +53,18 @@ export default function Navbar() {
           </nav>
 
           {/* Right Actions */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-2">
+            {/* Theme toggle */}
+            <button
+              onClick={toggleTheme}
+              aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+              className="p-2 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors"
+              data-testid="nav-theme-toggle"
+            >
+              {isDark ? <Sun size={17} /> : <Moon size={17} />}
+            </button>
+
+            {/* Language toggle */}
             <button
               onClick={() => setLang(lang === "en" ? "ar" : "en")}
               className="px-3 py-1.5 text-sm font-medium border border-white/20 rounded-md text-white/70 hover:text-white hover:border-white/40 transition-colors"
@@ -59,6 +72,7 @@ export default function Navbar() {
             >
               {lang === "en" ? "العربية" : "English"}
             </button>
+
             <Link
               href="/contact"
               className="px-4 py-2 text-sm font-semibold bg-[hsl(42,90%,50%)] text-[hsl(220,60%,10%)] rounded-md hover:bg-[hsl(42,90%,45%)] transition-colors"
@@ -69,20 +83,30 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Toggle */}
-          <button
-            className="lg:hidden text-white p-2"
-            onClick={() => setOpen(!open)}
-            data-testid="nav-mobile-toggle"
-            aria-label="Toggle menu"
-          >
-            {open ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          <div className="lg:hidden flex items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+              className="p-2 text-white/70 hover:text-white transition-colors"
+              data-testid="nav-mobile-theme-toggle"
+            >
+              {isDark ? <Sun size={17} /> : <Moon size={17} />}
+            </button>
+            <button
+              className="text-white p-2"
+              onClick={() => setOpen(!open)}
+              data-testid="nav-mobile-toggle"
+              aria-label="Toggle menu"
+            >
+              {open ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {open && (
-        <div className="lg:hidden bg-[hsl(220,60%,8%)] border-t border-white/10 px-4 pb-4" data-testid="nav-mobile-menu">
+        <div className="lg:hidden bg-[hsl(220,60%,14%)] dark:bg-[hsl(220,60%,8%)] border-t border-white/10 px-4 pb-4" data-testid="nav-mobile-menu">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -99,7 +123,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3 mt-4">
             <button
               onClick={() => setLang(lang === "en" ? "ar" : "en")}
-              className="px-3 py-1.5 text-sm border border-white/20 rounded-md text-white/70"
+              className="px-3 py-1.5 text-sm border border-white/20 rounded-md text-white/70 hover:text-white transition-colors"
               data-testid="nav-mobile-lang"
             >
               {lang === "en" ? "العربية" : "English"}

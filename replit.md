@@ -44,11 +44,13 @@ artifacts/axinova/src/
 
 ## Architecture decisions
 
-- **Dark-by-default**: `<html class="dark">` in index.html. All light sections use Tailwind CSS `bg-background`/`bg-card` which resolve to dark navy via CSS vars.
-- **Bilingual RTL**: `useLang()` returns `t(en, ar)` helper. Language toggle sets `document.documentElement.dir` — CSS logical properties (`start`/`end`, `ps-`/`pe-`) handle all layout flipping automatically.
+- **Light-by-default + Dark toggle**: `ThemeContext` defaults to `"light"`, persists to `localStorage` (key `axinova-theme`). An anti-FOUC inline script in `index.html` restores the saved theme before React hydrates. `dark` class is toggled on `<html>` by `ThemeContext`; the Sun/Moon button lives in `Navbar`.
+- **CSS variables**: `:root` defines light theme (white/off-white backgrounds, dark navy text); `.dark` overrides to deep navy backgrounds and light text — all via Tailwind `bg-background`, `bg-card`, `text-foreground`, etc.
+- **Intentionally dark sections**: Hero banners and `SectionWrapper dark` use hard-coded `bg-[hsl(220,60%,8%)]` — they stay navy in both themes (corporate branded bands). Regular content sections (`bg-background`, `bg-card`) auto-adapt to the active theme.
+- **Bilingual RTL**: `useLang()` returns `t(en, ar)` helper; Arabic is the default language. Language toggle sets `document.documentElement.dir` — CSS logical properties (`start`/`end`, `ps-`/`pe-`) handle all layout flipping automatically.
 - **Frontend-only**: No backend integration. All data is mock. Forms show success states on submit.
 - **Framer Motion**: All section wrappers animate on scroll via `whileInView`. Stats count up via `useInView` hook.
-- **Theme**: Deep navy `hsl(220,60%,8%)` backgrounds, `hsl(220,80%,45%)` accent blue, `hsl(42,90%,50%)` gold — all as hard-coded HSL values (not CSS vars) for dark-section overrides.
+- **Brand colours**: Deep navy `hsl(220,60%,8%)`, accent blue `hsl(220,80%,45%)`, gold `hsl(42,90%,50%)` — hard-coded for dark-section overrides; semantic colours use CSS vars.
 
 ## Product
 
@@ -68,7 +70,9 @@ _Populate as you build — explicit user instructions worth remembering across s
 
 - Do NOT run `pnpm dev` at the workspace root — use `restart_workflow` instead
 - Tailwind CSS v4 uses `@import "tailwindcss"` not `@tailwind` directives
-- `dark` class on `<html>` is set statically in `index.html` — LanguageContext only manages `dir` and `lang`
+- `dark` class on `<html>` is managed by `ThemeContext` (not static) — do NOT add it to `index.html`
+- `index.html` has an anti-FOUC inline `<script>` that restores saved theme from `localStorage` before React mounts
+- `ThemeContext` must wrap `LanguageProvider` in `App.tsx` — both toggle attributes on `<html>`
 - CSS logical properties (`ps-`, `pe-`, `start-`, `end-`) are used throughout for automatic RTL support
 - Axinova uses `BASE_URL` from `import.meta.env.BASE_URL` in the Wouter `base` prop for path-based routing
 
