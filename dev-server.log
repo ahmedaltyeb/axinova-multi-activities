@@ -1,0 +1,82 @@
+
+> @workspace/axinova@0.0.0 dev C:\Users\HP 840 G5\Downloads\TechSolutionsCompany\axinova-multi-activities\Axinova-website\artifacts\axinova
+> vite --config vite.config.ts --host 0.0.0.0
+
+
+  [32m[1mVITE[22m v7.3.3[39m  [2mready in [0m[1m652[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.48.2:[1m5173[22m/[39m
+[2m[32m  ➜[39m[22m[2m  press [22m[1mh + enter[22m[2m to show help[22m
+[2m4:40:02 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/pages/Projects.tsx, /src/pages/News.tsx, /src/pages/Careers.tsx, /src/pages/Industries.tsx, /src/pages/Products.tsx, /src/pages/Services.tsx, /src/pages/About.tsx, /src/pages/Home.tsx[22m
+[2m4:40:25 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/pages/Projects.tsx, /src/pages/News.tsx, /src/pages/Careers.tsx, /src/pages/Industries.tsx, /src/pages/Products.tsx, /src/pages/Services.tsx, /src/pages/About.tsx, /src/pages/Home.tsx[22m
+[2m4:41:20 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/pages/Projects.tsx, /src/pages/News.tsx, /src/pages/Careers.tsx, /src/pages/Industries.tsx, /src/pages/Products.tsx, /src/pages/Services.tsx, /src/pages/About.tsx, /src/pages/Home.tsx[22m
+[2m4:42:00 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/pages/Projects.tsx, /src/pages/News.tsx, /src/pages/Careers.tsx, /src/pages/Industries.tsx, /src/pages/Products.tsx, /src/pages/Services.tsx, /src/pages/About.tsx, /src/pages/Home.tsx[22m
+[2m4:42:06 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Services.tsx, /src/index.css[22m
+[RUNTIME_ERROR]{"type":"runtime-error","timestamp":1781397727612,"name":"Error","message":"sector.toLowerCase is not a function","stack":"    at C:/Users/HP 840 G5/Downloads/TechSolutionsCompany/axinova-multi-activities/Axinova-website/artifacts/axinova/src/pages/Services.tsx:58:88\n    at Array.map (<anonymous>)\n    at Services C:/Users/HP 840 G5/Downloads/TechSolutionsCompany/axinova-multi-activities/Axinova-website/artifacts/axinova/src/pages/Services.tsx:55:18\n\n\n\n\n\n\n","loc":{"line":58,"column":88,"file":"C:/Users/HP 840 G5/Downloads/TechSolutionsCompany/axinova-multi-activities/Axinova-website/artifacts/axinova/src/pages/Services.tsx"},"frame":"56 |            const services = mockServices.filter((s) => s.sector === sector);\n57 |            return (\n58 |              <div key={sector} className=\"mb-14\" data-testid={`services-sector-${sector.toLowerCase().replace(/ /g, \"-\")}`}>\n   |                                                                                         ^\n59 |                <h2 className=\"text-xl font-bold text-foreground mb-6 pb-3 border-b border-border flex items-center gap-3\">\n60 |                  <span className=\"inline-block w-2 h-2 rounded-full bg-[hsl(42,90%,50%)]\" />"}
+[2m4:42:20 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Services.tsx, /src/index.css[22m
+[2m4:42:29 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Industries.tsx, /src/index.css[22m
+[2m4:47:51 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Products.tsx, /src/index.css[22m
+[2m4:47:55 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Products.tsx, /src/index.css[22m
+[2m4:48:03 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Products.tsx, /src/index.css[22m
+[2m4:48:28 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Careers.tsx, /src/index.css[22m
+[2m4:48:36 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Careers.tsx, /src/index.css[22m
+[2m4:48:43 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Careers.tsx, /src/index.css[22m
+[2m4:52:15 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/components/Marquee.tsx[22m
+[2m4:52:15 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mindex.html[22m
+[2m4:52:15 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/pages/Projects.tsx, /src/pages/News.tsx, /src/pages/Careers.tsx, /src/pages/Industries.tsx, /src/pages/Products.tsx, /src/pages/Services.tsx, /src/pages/About.tsx, /src/pages/Home.tsx[22m
+[2m4:52:15 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m4:52:15 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Careers.tsx, /src/index.css[22m
+[2m4:52:15 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/components/Marquee.tsx[22m
+[2m4:52:15 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Home.tsx, /src/index.css[22m
+[2m4:52:15 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Industries.tsx, /src/index.css[22m
+[2m4:52:15 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Products.tsx, /src/index.css[22m
+[2m4:52:15 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Projects.tsx, /src/index.css[22m
+[2m4:52:15 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Services.tsx, /src/index.css[22m
+[2m4:52:15 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m4:52:15 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/pages/Projects.tsx[22m
+[2m4:52:15 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m4:52:15 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/pages/Projects.tsx[22m
+[2m4:52:15 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mindex.html[22m
+[2m4:52:15 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m4:52:16 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/data/mockData.ts[22m
+[2m4:52:16 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/pages/Home.tsx[22m
+[2m4:52:16 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/components/Marquee.tsx[22m
+[2m4:52:16 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/data/mockData.ts[22m
+[2m4:52:16 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/pages/Projects.tsx[22m
+[2m4:52:16 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/pages/News.tsx, /src/pages/Careers.tsx, /src/pages/Industries.tsx, /src/pages/Products.tsx, /src/pages/Services.tsx, /src/pages/About.tsx, /src/pages/Home.tsx[22m
+[2m4:52:16 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Careers.tsx, /src/index.css[22m
+[2m4:52:16 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Industries.tsx, /src/index.css[22m
+[2m4:52:16 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Products.tsx, /src/index.css[22m
+[2m4:52:16 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Services.tsx, /src/index.css[22m
+[2m5:13:58 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mindex.html[22m
+[2m5:14:15 AM[22m [36m[1m[vite][22m[39m [32mvite.config.ts changed, restarting server...[39m
+[2m5:14:15 AM[22m [36m[1m[vite][22m[39m server restarted.
+[2m5:27:02 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Home.tsx, /src/index.css[22m
+[2m5:36:50 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/Navbar.tsx, /src/index.css[22m
+[2m5:36:58 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/Navbar.tsx, /src/index.css[22m
+[2m8:51:50 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Home.tsx, /src/index.css[22m
+[2m8:51:55 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Home.tsx, /src/index.css[22m
+[2m8:52:03 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Home.tsx, /src/index.css[22m
+[2m8:52:11 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/About.tsx, /src/index.css[22m
+[2m8:52:16 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/About.tsx, /src/index.css[22m
+[2m8:52:22 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/About.tsx, /src/index.css[22m
+[2m8:52:34 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Industries.tsx, /src/index.css[22m
+[2m8:52:41 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Industries.tsx, /src/index.css[22m
+[2m8:54:01 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Services.tsx, /src/index.css[22m
+[2m8:54:10 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Services.tsx, /src/index.css[22m
+[2m8:54:16 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Products.tsx, /src/index.css[22m
+[2m8:54:21 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Products.tsx, /src/index.css[22m
+[2m8:54:31 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Projects.tsx, /src/index.css[22m
+[2m8:54:37 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Projects.tsx, /src/index.css[22m
+[2m8:54:46 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Investors.tsx, /src/index.css[22m
+[2m8:54:54 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Investors.tsx, /src/index.css[22m
+[2m8:55:00 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/News.tsx, /src/index.css[22m
+[2m8:55:06 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/News.tsx, /src/index.css[22m
+[2m8:55:16 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Careers.tsx, /src/index.css[22m
+[2m8:55:21 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Careers.tsx, /src/index.css[22m
+[2m8:55:35 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Contact.tsx, /src/index.css[22m
+[2m8:55:48 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Contact.tsx, /src/index.css[22m
+[2m8:56:39 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mindex.html[22m
+[2m10:00:44 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/pages/News.tsx, /src/pages/Services.tsx, /src/pages/About.tsx, /src/pages/Products.tsx, /src/pages/Projects.tsx, /src/pages/Industries.tsx, /src/pages/Home.tsx, /src/pages/Careers.tsx[22m
+[2m10:01:08 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/index.css, /src/pages/News.tsx, /src/pages/Services.tsx, /src/pages/About.tsx, /src/pages/Products.tsx, /src/pages/Projects.tsx, /src/pages/Industries.tsx, /src/pages/Home.tsx, /src/pages/Careers.tsx[22m
