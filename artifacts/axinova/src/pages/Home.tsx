@@ -260,15 +260,24 @@ export default function Home() {
               className="group rounded-xl overflow-hidden border border-border bg-card"
               data-testid={`project-card-${project.id}`}
             >
-              <div className="relative aspect-video overflow-hidden bg-muted">
-                <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                <span className={`absolute top-3 end-3 px-2 py-0.5 text-xs font-semibold rounded-full ${project.status === "completed" ? "bg-green-500/90 text-white" : "bg-[hsl(42,90%,50%)] text-[hsl(220,60%,10%)]"}`}>
+              <div className="relative h-48 overflow-hidden bg-muted">
+                <img
+                  src={project.imageUrl}
+                  alt={t(project.title, project.arabicTitle)}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <span className={`absolute top-3 end-3 px-2 py-0.5 text-xs font-semibold rounded-full ${project.status === "completed" ? "bg-emerald-500 text-white" : "bg-[hsl(42,90%,50%)] text-[hsl(220,60%,10%)]"}`}>
                   {t(project.status === "completed" ? "Completed" : "Ongoing", project.status === "completed" ? "منجز" : "جاري")}
                 </span>
               </div>
               <div className="p-4">
-                <p className="text-xs font-medium text-[hsl(220,80%,45%)] uppercase tracking-wide mb-1">{project.category} · {project.location}</p>
-                <h3 className="text-sm font-semibold text-foreground">{project.title}</h3>
+                <p className="text-xs font-medium text-[hsl(220,80%,45%)] uppercase tracking-wide mb-1">
+                  {t(project.category, project.arabicCategory)} · {t(project.location, project.arabicLocation)}
+                </p>
+                <h3 className="text-sm font-semibold text-foreground group-hover:text-[hsl(220,80%,45%)] transition-colors">
+                  {t(project.title, project.arabicTitle)}
+                </h3>
               </div>
             </motion.div>
           ))}
