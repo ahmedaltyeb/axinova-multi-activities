@@ -7,6 +7,17 @@ import { Package } from "lucide-react";
 
 const categories = ["All", ...Array.from(new Set(mockProducts.map((p) => p.category)))];
 
+const categoryTranslations: Record<string, string> = {
+  "All": "الكل",
+  "Industrial Materials": "مواد صناعية",
+  "Power Equipment": "معدات الطاقة",
+  "Heavy Equipment": "معدات ثقيلة",
+  "Logistics Equipment": "معدات لوجستية",
+  "Warehousing": "التخزين",
+  "Safety Equipment": "معدات السلامة",
+  "Construction": "البناء والتشييد",
+};
+
 export default function Products() {
   const { t } = useLang();
   const [active, setActive] = useState("All");
@@ -46,7 +57,7 @@ export default function Products() {
               }`}
               data-testid={`filter-${cat.toLowerCase().replace(/ /g, "-")}`}
             >
-              {cat}
+              {t(cat, categoryTranslations[cat] ?? cat)}
             </button>
           ))}
         </div>
@@ -65,11 +76,11 @@ export default function Products() {
               <div className="w-10 h-10 rounded-lg bg-[hsl(220,80%,45%)]/10 flex items-center justify-center mb-4 group-hover:bg-[hsl(220,80%,45%)]/20 transition-colors">
                 <Package size={18} className="text-[hsl(220,80%,45%)]" />
               </div>
-              <span className="text-xs font-medium text-[hsl(42,90%,50%)] uppercase tracking-wide">{product.category}</span>
-              <h3 className="text-base font-semibold text-foreground mt-1 mb-2">{product.name}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-3">{product.description}</p>
+              <span className="text-xs font-medium text-[hsl(42,90%,50%)] uppercase tracking-wide">{t(product.category, product.arabicCategory)}</span>
+              <h3 className="text-base font-semibold text-foreground mt-1 mb-2">{t(product.name, product.arabicName)}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-3">{t(product.description, product.arabicDescription)}</p>
               <div className="text-xs font-mono text-muted-foreground bg-muted px-3 py-2 rounded-md">
-                {product.specs}
+                {t(product.specs, product.arabicSpecs)}
               </div>
             </motion.div>
           ))}

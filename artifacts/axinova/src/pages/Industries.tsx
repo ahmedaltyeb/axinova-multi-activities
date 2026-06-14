@@ -61,10 +61,10 @@ export default function Industries() {
                       {t("Key Activities", "الأنشطة الرئيسية")}
                     </h4>
                     <ul className="space-y-2">
-                      {sector.activities.map((act) => (
+                      {sector.activities.map((act, idx) => (
                         <li key={act} className="flex items-center gap-2 text-sm text-foreground">
                           <Check size={14} className="text-[hsl(42,90%,50%)] shrink-0" />
-                          {act}
+                          {t(act, sector.arabicActivities[idx])}
                         </li>
                       ))}
                     </ul>
@@ -73,7 +73,7 @@ export default function Industries() {
                     <h4 className="text-xs font-semibold uppercase tracking-widest text-[hsl(220,80%,45%)] mb-2">
                       {t("Target Clients", "العملاء المستهدفون")}
                     </h4>
-                    <p className="text-sm text-muted-foreground">{sector.targetClients}</p>
+                    <p className="text-sm text-muted-foreground">{t(sector.targetClients, sector.arabicTargetClients)}</p>
                   </div>
                 </div>
                 <div className={`relative aspect-video rounded-xl overflow-hidden bg-muted ${i % 2 === 1 ? "lg:order-1" : ""}`}>

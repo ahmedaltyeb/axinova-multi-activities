@@ -136,16 +136,16 @@ export default function Careers() {
               >
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center gap-2 mb-1">
-                    <span className="text-xs font-semibold uppercase tracking-widest text-[hsl(42,90%,50%)]">{job.department}</span>
+                    <span className="text-xs font-semibold uppercase tracking-widest text-[hsl(42,90%,50%)]">{t(job.department, job.arabicDepartment)}</span>
                     <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${
                       job.type === "Full-time" ? "bg-emerald-500/10 text-emerald-500" : "bg-amber-500/10 text-amber-500"
-                    }`}>{job.type}</span>
+                    }`}>{t(job.type, job.arabicType)}</span>
                   </div>
-                  <h3 className="text-base font-semibold text-foreground">{job.title}</h3>
+                  <h3 className="text-base font-semibold text-foreground">{t(job.title, job.arabicTitle)}</h3>
                   <div className="flex flex-wrap items-center gap-4 mt-2 text-xs text-muted-foreground">
-                    <span className="flex items-center gap-1.5"><MapPin size={11} /> {job.location}</span>
-                    <span className="flex items-center gap-1.5"><Briefcase size={11} /> {job.department}</span>
-                    <span className="flex items-center gap-1.5"><Clock size={11} /> {job.type}</span>
+                    <span className="flex items-center gap-1.5"><MapPin size={11} /> {t(job.location, job.arabicLocation)}</span>
+                    <span className="flex items-center gap-1.5"><Briefcase size={11} /> {t(job.department, job.arabicDepartment)}</span>
+                    <span className="flex items-center gap-1.5"><Clock size={11} /> {t(job.type, job.arabicType)}</span>
                   </div>
                 </div>
                 <div className="shrink-0 text-muted-foreground mt-1">
@@ -156,13 +156,13 @@ export default function Careers() {
               {/* Expanded detail */}
               {expanded === job.id && (
                 <div className="px-6 pb-6 border-t border-border">
-                  <p className="text-sm text-muted-foreground leading-relaxed mt-4 mb-4">{job.description}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed mt-4 mb-4">{t(job.description, job.arabicDescription)}</p>
                   <h4 className="text-xs font-semibold uppercase tracking-widest text-foreground mb-2">{t("Requirements", "المتطلبات")}</h4>
                   <ul className="space-y-1.5 mb-6">
-                    {job.requirements.map((req) => (
+                    {job.requirements.map((req, idx) => (
                       <li key={req} className="flex items-start gap-2 text-sm text-muted-foreground">
                         <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[hsl(42,90%,50%)] shrink-0" />
-                        {req}
+                        {t(req, job.arabicRequirements[idx])}
                       </li>
                     ))}
                   </ul>
@@ -178,7 +178,7 @@ export default function Careers() {
                       data-testid={`application-form-${job.id}`}
                     >
                       <h4 className="text-sm font-semibold text-foreground">
-                        {t("Apply for:", "التقديم على:")} <span className="text-[hsl(220,80%,45%)]">{job.title}</span>
+                        {t("Apply for:", "التقديم على:")} <span className="text-[hsl(220,80%,45%)]">{t(job.title, job.arabicTitle)}</span>
                       </h4>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>

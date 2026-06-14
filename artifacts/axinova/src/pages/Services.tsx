@@ -5,7 +5,13 @@ import { useLang } from "@/context/LanguageContext";
 import SectionWrapper, { SectionHeading } from "@/components/SectionWrapper";
 import { mockServices } from "@/data/mockData";
 
-const sectors = ["Industrial", "Trading", "Technical Services", "Logistics", "Construction"];
+const sectors = [
+  { key: "Industrial", en: "Industrial", ar: "الصناعة" },
+  { key: "Trading", en: "Trading", ar: "التجارة" },
+  { key: "Technical Services", en: "Technical Services", ar: "الخدمات الفنية" },
+  { key: "Logistics", en: "Logistics", ar: "اللوجستيات" },
+  { key: "Construction", en: "Construction", ar: "البناء والتشييد" },
+];
 
 const process = [
   { step: "01", en: "Discovery & Assessment", ar: "الاكتشاف والتقييم", desc_en: "We analyze your needs, constraints, and goals to define the right scope.", desc_ar: "نحلل احتياجاتك وقيودك وأهدافك لتحديد النطاق الصحيح." },
@@ -47,12 +53,12 @@ export default function Services() {
       {/* Services by sector */}
       <SectionWrapper>
         {sectors.map((sector) => {
-          const services = mockServices.filter((s) => s.sector === sector);
+          const services = mockServices.filter((s) => s.sector === sector.key);
           return (
-            <div key={sector} className="mb-14" data-testid={`services-sector-${sector.toLowerCase().replace(/ /g, "-")}`}>
+            <div key={sector.key} className="mb-14" data-testid={`services-sector-${sector.key.toLowerCase().replace(/ /g, "-")}`}>
               <h2 className="text-xl font-bold text-foreground mb-6 pb-3 border-b border-border flex items-center gap-3">
                 <span className="inline-block w-2 h-2 rounded-full bg-[hsl(42,90%,50%)]" />
-                {sector}
+                {t(sector.en, sector.ar)}
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {services.map((svc, i) => (
@@ -66,8 +72,8 @@ export default function Services() {
                     data-testid={`service-card-${svc.id}`}
                   >
                     <CheckCircle size={15} className="text-[hsl(220,80%,45%)] mb-3" />
-                    <h3 className="text-sm font-semibold text-foreground mb-1">{svc.name}</h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed">{svc.description}</p>
+                    <h3 className="text-sm font-semibold text-foreground mb-1">{t(svc.name, svc.arabicName)}</h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{t(svc.description, svc.arabicDescription)}</p>
                   </motion.div>
                 ))}
               </div>

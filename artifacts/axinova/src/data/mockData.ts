@@ -7,7 +7,9 @@ export const mockSectors = [
     arabicDescription: "بناء العمود الفقري للقدرة الصناعية في المنطقة من خلال مرافق التصنيع والمعالجة الثقيلة.",
     icon: "Factory",
     activities: ["Steel Manufacturing", "Chemical Processing", "Equipment Fabrication", "Industrial Plant Operations"],
-    targetClients: "Government agencies, state-owned enterprises, and heavy industry operators"
+    arabicActivities: ["تصنيع الصلب", "معالجة المواد الكيميائية", "تصنيع المعدات", "تشغيل المنشآت الصناعية"],
+    targetClients: "Government agencies, state-owned enterprises, and heavy industry operators",
+    arabicTargetClients: "الجهات الحكومية والمؤسسات المملوكة للدولة ومشغلو الصناعات الثقيلة"
   },
   {
     id: "trading",
@@ -17,7 +19,9 @@ export const mockSectors = [
     arabicDescription: "تسهيل التجارة العالمية من خلال سلاسل التوريد القوية وتجارة السلع الاستراتيجية عبر منطقة الشرق الأوسط وشمال أفريقيا.",
     icon: "Globe",
     activities: ["Commodities Trading", "Machinery Sourcing", "Import/Export Operations", "Strategic Procurement"],
-    targetClients: "B2B companies, wholesalers, distributors, and government procurement agencies"
+    arabicActivities: ["تداول السلع", "توريد الآلات", "عمليات الاستيراد والتصدير", "المشتريات الاستراتيجية"],
+    targetClients: "B2B companies, wholesalers, distributors, and government procurement agencies",
+    arabicTargetClients: "شركات B2B والموزعون بالجملة والموزعون ووكالات المشتريات الحكومية"
   },
   {
     id: "technical",
@@ -27,7 +31,9 @@ export const mockSectors = [
     arabicDescription: "توفير الدعم الهندسي والفني المتقدم لمشاريع البنية التحتية والصناعية المعقدة.",
     icon: "Wrench",
     activities: ["Maintenance & Repair", "Facility Management", "Engineering Consulting", "Technical Inspections"],
-    targetClients: "Commercial real estate operators, industrial facilities, and public infrastructure owners"
+    arabicActivities: ["الصيانة والإصلاح", "إدارة المرافق", "الاستشارات الهندسية", "الفحوصات الفنية"],
+    targetClients: "Commercial real estate operators, industrial facilities, and public infrastructure owners",
+    arabicTargetClients: "مشغلو العقارات التجارية والمنشآت الصناعية وملاك البنية التحتية العامة"
   },
   {
     id: "logistics",
@@ -37,7 +43,9 @@ export const mockSectors = [
     arabicDescription: "حلول سلسلة التوريد الشاملة، ونقل البضائع بسلاسة عبر حدود دول الخليج ومسارات التجارة العالمية.",
     icon: "Truck",
     activities: ["Freight Forwarding", "Warehousing & Distribution", "Customs Clearance", "Last-Mile Delivery"],
-    targetClients: "Retail chains, manufacturing companies, and e-commerce enterprises"
+    arabicActivities: ["الشحن والتوريد", "التخزين والتوزيع", "التخليص الجمركي", "التسليم الأخير"],
+    targetClients: "Retail chains, manufacturing companies, and e-commerce enterprises",
+    arabicTargetClients: "سلاسل البيع بالتجزئة وشركات التصنيع ومؤسسات التجارة الإلكترونية"
   },
   {
     id: "construction",
@@ -47,7 +55,9 @@ export const mockSectors = [
     arabicDescription: "تقديم الهندسة المعمارية الضخمة والبنية التحتية المدنية الحيوية التي تحدد أفق منطقة الخليج العربي.",
     icon: "Building2",
     activities: ["Civil Engineering", "Commercial Real Estate", "Infrastructure Development", "Project Management"],
-    targetClients: "Government ministries, real estate developers, and industrial zone authorities"
+    arabicActivities: ["الهندسة المدنية", "العقارات التجارية", "تطوير البنية التحتية", "إدارة المشاريع"],
+    targetClients: "Government ministries, real estate developers, and industrial zone authorities",
+    arabicTargetClients: "الوزارات الحكومية ومطورو العقارات وسلطات المناطق الصناعية"
   }
 ];
 
@@ -225,18 +235,18 @@ export const mockTeam = [
 ];
 
 export const mockServices = [
-  { id: "s1", name: "Steel Manufacturing", sector: "Industrial", description: "Large-scale steel production using EAF and BOF processes." },
-  { id: "s2", name: "Chemical Processing", sector: "Industrial", description: "Downstream petrochemical processing and specialty chemicals." },
-  { id: "s3", name: "Equipment Fabrication", sector: "Industrial", description: "Custom industrial equipment design and fabrication to spec." },
-  { id: "s4", name: "Commodities Trading", sector: "Trading", description: "Strategic trading of metals, energy, and agricultural commodities." },
-  { id: "s5", name: "Machinery Sourcing", sector: "Trading", description: "Global sourcing of industrial machinery and equipment." },
-  { id: "s6", name: "Maintenance & Repair", sector: "Technical Services", description: "Scheduled and emergency maintenance for industrial assets." },
-  { id: "s7", name: "Engineering Consulting", sector: "Technical Services", description: "Feasibility studies, design reviews, and technical audits." },
-  { id: "s8", name: "Freight Forwarding", sector: "Logistics", description: "Air, sea, and land freight across 12+ countries." },
-  { id: "s9", name: "Warehousing", sector: "Logistics", description: "Bonded and free-zone warehousing across GCC." },
-  { id: "s10", name: "Civil Engineering", sector: "Construction", description: "Bridges, roads, and heavy civil infrastructure." },
-  { id: "s11", name: "Commercial Real Estate", sector: "Construction", description: "Office towers, mixed-use complexes, and retail developments." },
-  { id: "s12", name: "Customs Clearance", sector: "Logistics", description: "Expert customs documentation and duty optimization." }
+  { id: "s1", name: "Steel Manufacturing", arabicName: "تصنيع الصلب", sector: "Industrial", description: "Large-scale steel production using EAF and BOF processes.", arabicDescription: "إنتاج الصلب على نطاق واسع باستخدام عمليتَي EAF وBOF." },
+  { id: "s2", name: "Chemical Processing", arabicName: "معالجة الكيماويات", sector: "Industrial", description: "Downstream petrochemical processing and specialty chemicals.", arabicDescription: "معالجة البتروكيماويات المنبثقة والمواد الكيميائية المتخصصة." },
+  { id: "s3", name: "Equipment Fabrication", arabicName: "تصنيع المعدات", sector: "Industrial", description: "Custom industrial equipment design and fabrication to spec.", arabicDescription: "تصميم وتصنيع معدات صناعية مخصصة وفق المواصفات." },
+  { id: "s4", name: "Commodities Trading", arabicName: "تداول السلع", sector: "Trading", description: "Strategic trading of metals, energy, and agricultural commodities.", arabicDescription: "تداول استراتيجي للمعادن والطاقة والسلع الزراعية." },
+  { id: "s5", name: "Machinery Sourcing", arabicName: "توريد الآلات", sector: "Trading", description: "Global sourcing of industrial machinery and equipment.", arabicDescription: "توريد عالمي للآلات والمعدات الصناعية." },
+  { id: "s6", name: "Maintenance & Repair", arabicName: "الصيانة والإصلاح", sector: "Technical Services", description: "Scheduled and emergency maintenance for industrial assets.", arabicDescription: "صيانة مجدولة وطارئة للأصول الصناعية." },
+  { id: "s7", name: "Engineering Consulting", arabicName: "الاستشارات الهندسية", sector: "Technical Services", description: "Feasibility studies, design reviews, and technical audits.", arabicDescription: "دراسات الجدوى ومراجعات التصميم والمراجعات الفنية." },
+  { id: "s8", name: "Freight Forwarding", arabicName: "الشحن والتوريد", sector: "Logistics", description: "Air, sea, and land freight across 12+ countries.", arabicDescription: "شحن جوي وبحري وبري عبر أكثر من 12 دولة." },
+  { id: "s9", name: "Warehousing", arabicName: "التخزين", sector: "Logistics", description: "Bonded and free-zone warehousing across GCC.", arabicDescription: "تخزين في مناطق مخصصة وحرة عبر دول الخليج." },
+  { id: "s10", name: "Civil Engineering", arabicName: "الهندسة المدنية", sector: "Construction", description: "Bridges, roads, and heavy civil infrastructure.", arabicDescription: "جسور وطرق وبنية تحتية مدنية ثقيلة." },
+  { id: "s11", name: "Commercial Real Estate", arabicName: "العقارات التجارية", sector: "Construction", description: "Office towers, mixed-use complexes, and retail developments.", arabicDescription: "أبراج مكاتب ومجمعات متعددة الاستخدامات ومشاريع تجزئة." },
+  { id: "s12", name: "Customs Clearance", arabicName: "التخليص الجمركي", sector: "Logistics", description: "Expert customs documentation and duty optimization.", arabicDescription: "توثيق جمركي متخصص وتحسين الرسوم الجمركية." }
 ];
 
 export const mockNews = [
@@ -326,75 +336,111 @@ export const mockCareers = [
   {
     id: "j1",
     title: "Senior Civil Engineer",
+    arabicTitle: "مهندس مدني أول",
     department: "Construction",
+    arabicDepartment: "البناء والتشييد",
     location: "Riyadh, Saudi Arabia",
+    arabicLocation: "الرياض، المملكة العربية السعودية",
     type: "Full-time",
+    arabicType: "دوام كامل",
     description: "Lead structural design and site supervision for large-scale infrastructure projects in Saudi Arabia.",
-    requirements: ["10+ years civil engineering experience", "Saudi Aramco or SABIC project experience a plus", "PMP or PE certification preferred", "Arabic language proficiency"]
+    arabicDescription: "قيادة التصميم الإنشائي والإشراف على المواقع لمشاريع البنية التحتية الكبرى في المملكة العربية السعودية.",
+    requirements: ["10+ years civil engineering experience", "Saudi Aramco or SABIC project experience a plus", "PMP or PE certification preferred", "Arabic language proficiency"],
+    arabicRequirements: ["أكثر من 10 سنوات خبرة في الهندسة المدنية", "الخبرة في مشاريع أرامكو أو سابك ميزة إضافية", "شهادة PMP أو PE مفضلة", "إتقان اللغة العربية"]
   },
   {
     id: "j2",
     title: "Logistics Operations Manager",
+    arabicTitle: "مدير العمليات اللوجستية",
     department: "Logistics",
+    arabicDepartment: "اللوجستيات",
     location: "Dubai, UAE",
+    arabicLocation: "دبي، الإمارات العربية المتحدة",
     type: "Full-time",
+    arabicType: "دوام كامل",
     description: "Oversee cross-border freight operations across 12 countries, managing a team of 50+ staff.",
-    requirements: ["8+ years in logistics/supply chain management", "GCC operations experience required", "WMS/TMS systems proficiency", "CILT certification preferred"]
+    arabicDescription: "الإشراف على عمليات الشحن عبر الحدود في 12 دولة وإدارة فريق يضم أكثر من 50 موظفاً.",
+    requirements: ["8+ years in logistics/supply chain management", "GCC operations experience required", "WMS/TMS systems proficiency", "CILT certification preferred"],
+    arabicRequirements: ["أكثر من 8 سنوات في اللوجستيات/سلاسل التوريد", "خبرة عمليات في منطقة الخليج مطلوبة", "إتقان أنظمة WMS/TMS", "شهادة CILT مفضلة"]
   },
   {
     id: "j3",
     title: "Industrial Plant Supervisor",
+    arabicTitle: "مشرف منشأة صناعية",
     department: "Industrial",
+    arabicDepartment: "الصناعة",
     location: "Jubail, Saudi Arabia",
+    arabicLocation: "الجبيل، المملكة العربية السعودية",
     type: "Full-time",
+    arabicType: "دوام كامل",
     description: "Manage daily operations of a steel manufacturing facility with 400-employee workforce.",
-    requirements: ["7+ years plant operations experience", "Steel or petrochemical background", "NEBOSH HSE certification", "Bilingual English/Arabic"]
+    arabicDescription: "إدارة العمليات اليومية لمنشأة تصنيع الصلب بقوى عاملة تضم 400 موظف.",
+    requirements: ["7+ years plant operations experience", "Steel or petrochemical background", "NEBOSH HSE certification", "Bilingual English/Arabic"],
+    arabicRequirements: ["أكثر من 7 سنوات خبرة في تشغيل المنشآت", "خلفية في الصلب أو البتروكيماويات", "شهادة NEBOSH للسلامة والصحة المهنية", "ثنائي اللغة الإنجليزية/العربية"]
   },
   {
     id: "j4",
     title: "Commodity Trader – Energy",
+    arabicTitle: "متداول سلع - الطاقة",
     department: "Trading",
+    arabicDepartment: "التجارة",
     location: "Abu Dhabi, UAE",
+    arabicLocation: "أبوظبي، الإمارات العربية المتحدة",
     type: "Full-time",
+    arabicType: "دوام كامل",
     description: "Execute energy commodity trades across GCC markets, manage risk, and develop counterparty relationships.",
-    requirements: ["5+ years commodity trading experience", "Energy sector focus (oil, gas, LNG)", "CFA or CAIA certification a plus", "Bloomberg/Reuters terminals proficiency"]
+    arabicDescription: "تنفيذ صفقات سلع الطاقة في أسواق الخليج وإدارة المخاطر وتطوير علاقات الأطراف المقابلة.",
+    requirements: ["5+ years commodity trading experience", "Energy sector focus (oil, gas, LNG)", "CFA or CAIA certification a plus", "Bloomberg/Reuters terminals proficiency"],
+    arabicRequirements: ["أكثر من 5 سنوات خبرة في تداول السلع", "تركيز على قطاع الطاقة (نفط، غاز، LNG)", "شهادة CFA أو CAIA ميزة إضافية", "إتقان أطراف Bloomberg/Reuters"]
   },
   {
     id: "j5",
     title: "Technical Services Engineer",
+    arabicTitle: "مهندس الخدمات الفنية",
     department: "Technical Services",
+    arabicDepartment: "الخدمات الفنية",
     location: "Kuwait City, Kuwait",
+    arabicLocation: "مدينة الكويت، الكويت",
     type: "Contract",
+    arabicType: "عقد",
     description: "Provide on-site engineering support and maintenance management for industrial clients.",
-    requirements: ["5+ years maintenance engineering experience", "HVAC, electrical, or mechanical specialty", "CMMS software proficiency", "Available for site rotations"]
+    arabicDescription: "تقديم دعم هندسي ميداني وإدارة الصيانة للعملاء الصناعيين.",
+    requirements: ["5+ years maintenance engineering experience", "HVAC, electrical, or mechanical specialty", "CMMS software proficiency", "Available for site rotations"],
+    arabicRequirements: ["أكثر من 5 سنوات خبرة في هندسة الصيانة", "تخصص HVAC أو كهربائي أو ميكانيكي", "إتقان برامج CMMS", "متاح للتناوب في المواقع"]
   },
   {
     id: "j6",
     title: "Graduate Trainee – Business Development",
+    arabicTitle: "متدرب خريج - تطوير الأعمال",
     department: "Corporate",
+    arabicDepartment: "الشركة",
     location: "Riyadh, Saudi Arabia",
+    arabicLocation: "الرياض، المملكة العربية السعودية",
     type: "Full-time",
+    arabicType: "دوام كامل",
     description: "Two-year rotational program covering all five business sectors, leading to a permanent role.",
-    requirements: ["Bachelor's degree in Business, Engineering, or Finance", "GPA 3.5+ or equivalent", "GCC national preferred", "Fluent in English and Arabic"]
+    arabicDescription: "برنامج تناوب لمدة عامين يغطي القطاعات الخمسة للأعمال ويؤدي إلى دور دائم.",
+    requirements: ["Bachelor's degree in Business, Engineering, or Finance", "GPA 3.5+ or equivalent", "GCC national preferred", "Fluent in English and Arabic"],
+    arabicRequirements: ["درجة بكالوريوس في الأعمال أو الهندسة أو المالية", "معدل تراكمي 3.5 أو ما يعادله", "من دول الخليج مفضل", "إجادة اللغتين العربية والإنجليزية"]
   }
 ];
 
 export const mockProducts = [
-  { id: "pr1", name: "Structural Steel Beams (HEA/HEB)", category: "Industrial Materials", description: "Hot-rolled structural steel sections for commercial and industrial construction.", specs: "Grade S275/S355 | Lengths up to 18m" },
-  { id: "pr2", name: "Carbon Steel Pipes", category: "Industrial Materials", description: "Seamless and welded carbon steel pipes for oil, gas, and water applications.", specs: "OD 21.3–508mm | ASTM A106/A53" },
-  { id: "pr3", name: "Industrial Generator Sets", category: "Power Equipment", description: "Heavy-duty diesel generators for continuous industrial power supply.", specs: "100kVA–3000kVA | Perkins/Cummins engines" },
-  { id: "pr4", name: "Mobile Hydraulic Cranes", category: "Heavy Equipment", description: "All-terrain cranes for construction and industrial lifting operations.", specs: "50–500 tonne capacity | Liebherr/Tadano" },
-  { id: "pr5", name: "Overhead Bridge Cranes", category: "Heavy Equipment", description: "Fixed overhead cranes for factory and warehouse material handling.", specs: "5–100 tonne SWL | Spans up to 32m" },
-  { id: "pr6", name: "Industrial Air Compressors", category: "Power Equipment", description: "Rotary screw and piston compressors for high-demand industrial applications.", specs: "7–30 bar | 5–200 kW drive motors" },
-  { id: "pr7", name: "Container Forklifts", category: "Logistics Equipment", description: "Heavy-duty forklifts rated for container yard and port operations.", specs: "8–45 tonne capacity | Diesel/LPG" },
-  { id: "pr8", name: "Automated Pallet Racking", category: "Warehousing", description: "Selective and drive-in racking systems for high-density warehouse storage.", specs: "Load up to 4,000 kg/level | Heights to 12m" },
-  { id: "pr9", name: "Conveyor Belt Systems", category: "Industrial Materials", description: "Modular belt conveyors for bulk material handling in industrial plants.", specs: "Widths 500–2,000mm | Speeds to 4 m/s" },
-  { id: "pr10", name: "Flat-Bed Semi-Trailers", category: "Logistics Equipment", description: "Heavy-haul trailers for oversized and project cargo transport.", specs: "Up to 80 tonne payload | Extendable options" },
-  { id: "pr11", name: "Electric Transformers", category: "Power Equipment", description: "Step-up/step-down power transformers for industrial and utility substations.", specs: "11kV–132kV | Oil & dry-type" },
-  { id: "pr12", name: "Safety & PPE Supplies", category: "Safety Equipment", description: "Full range of personal protective equipment and site safety materials.", specs: "EN/ANSI certified | Hard hats, harnesses, eyewear" },
-  { id: "pr13", name: "Water Treatment Plants", category: "Industrial Materials", description: "Modular desalination and water recycling systems for industrial use.", specs: "1,000–50,000 m³/day capacity" },
-  { id: "pr14", name: "Pre-engineered Steel Buildings", category: "Construction", description: "Custom-designed prefab steel structures for warehouses and factories.", specs: "Spans up to 80m | 30-year structural warranty" },
-  { id: "pr15", name: "Automated Gate Systems", category: "Logistics Equipment", description: "RFID-integrated gate management systems for logistics parks and ports.", specs: "RFID + ANPR | 99.8% uptime SLA" }
+  { id: "pr1", name: "Structural Steel Beams (HEA/HEB)", arabicName: "عوارض الصلب الإنشائية (HEA/HEB)", category: "Industrial Materials", arabicCategory: "مواد صناعية", description: "Hot-rolled structural steel sections for commercial and industrial construction.", arabicDescription: "قطاعات فولاذية مدرفلة على الساخن للبناء التجاري والصناعي.", specs: "Grade S275/S355 | Lengths up to 18m", arabicSpecs: "الدرجة S275/S355 | أطوال تصل إلى 18م" },
+  { id: "pr2", name: "Carbon Steel Pipes", arabicName: "أنابيب الصلب الكربوني", category: "Industrial Materials", arabicCategory: "مواد صناعية", description: "Seamless and welded carbon steel pipes for oil, gas, and water applications.", arabicDescription: "أنابيب فولاذية كربونية ملحومة وغير ملحومة لتطبيقات النفط والغاز والمياه.", specs: "OD 21.3–508mm | ASTM A106/A53", arabicSpecs: "قطر خارجي 21.3–508مم | ASTM A106/A53" },
+  { id: "pr3", name: "Industrial Generator Sets", arabicName: "مجموعات مولدات صناعية", category: "Power Equipment", arabicCategory: "معدات الطاقة", description: "Heavy-duty diesel generators for continuous industrial power supply.", arabicDescription: "مولدات ديزل ثقيلة للإمداد المستمر بالطاقة الصناعية.", specs: "100kVA–3000kVA | Perkins/Cummins engines", arabicSpecs: "100–3000 كيلوفولت أمبير | محركات Perkins/Cummins" },
+  { id: "pr4", name: "Mobile Hydraulic Cranes", arabicName: "روافع هيدروليكية متنقلة", category: "Heavy Equipment", arabicCategory: "معدات ثقيلة", description: "All-terrain cranes for construction and industrial lifting operations.", arabicDescription: "رافعات للتضاريس الوعرة لعمليات الرفع في البناء والصناعة.", specs: "50–500 tonne capacity | Liebherr/Tadano", arabicSpecs: "طاقة 50–500 طن | Liebherr/Tadano" },
+  { id: "pr5", name: "Overhead Bridge Cranes", arabicName: "روافع جسرية علوية", category: "Heavy Equipment", arabicCategory: "معدات ثقيلة", description: "Fixed overhead cranes for factory and warehouse material handling.", arabicDescription: "روافع علوية ثابتة لمناولة المواد في المصانع والمستودعات.", specs: "5–100 tonne SWL | Spans up to 32m", arabicSpecs: "حمولة 5–100 طن | فترات تصل إلى 32م" },
+  { id: "pr6", name: "Industrial Air Compressors", arabicName: "ضواغط هواء صناعية", category: "Power Equipment", arabicCategory: "معدات الطاقة", description: "Rotary screw and piston compressors for high-demand industrial applications.", arabicDescription: "ضواغط برغي دوارة وكباسية للتطبيقات الصناعية عالية الطلب.", specs: "7–30 bar | 5–200 kW drive motors", arabicSpecs: "7–30 بار | محركات 5–200 كيلوواط" },
+  { id: "pr7", name: "Container Forklifts", arabicName: "رافعات شوكية للحاويات", category: "Logistics Equipment", arabicCategory: "معدات لوجستية", description: "Heavy-duty forklifts rated for container yard and port operations.", arabicDescription: "رافعات شوكية ثقيلة مصممة لعمليات ميادين الحاويات والموانئ.", specs: "8–45 tonne capacity | Diesel/LPG", arabicSpecs: "طاقة 8–45 طن | ديزل/غاز بترولي مسال" },
+  { id: "pr8", name: "Automated Pallet Racking", arabicName: "رفوف آلية للبالتات", category: "Warehousing", arabicCategory: "التخزين", description: "Selective and drive-in racking systems for high-density warehouse storage.", arabicDescription: "أنظمة رفوف انتقائية وذات مسار لتخزين المستودعات عالي الكثافة.", specs: "Load up to 4,000 kg/level | Heights to 12m", arabicSpecs: "حمولة تصل إلى 4,000 كجم/مستوى | ارتفاعات تصل إلى 12م" },
+  { id: "pr9", name: "Conveyor Belt Systems", arabicName: "أنظمة ناقلة الحزام", category: "Industrial Materials", arabicCategory: "مواد صناعية", description: "Modular belt conveyors for bulk material handling in industrial plants.", arabicDescription: "ناقلات حزام معيارية لمناولة المواد السائبة في المنشآت الصناعية.", specs: "Widths 500–2,000mm | Speeds to 4 m/s", arabicSpecs: "عرض 500–2,000مم | سرعات تصل إلى 4 م/ث" },
+  { id: "pr10", name: "Flat-Bed Semi-Trailers", arabicName: "نصف مقطورات مسطحة الصندوق", category: "Logistics Equipment", arabicCategory: "معدات لوجستية", description: "Heavy-haul trailers for oversized and project cargo transport.", arabicDescription: "مقطورات نقل الأحمال الثقيلة للشحنات الضخمة والمشاريع.", specs: "Up to 80 tonne payload | Extendable options", arabicSpecs: "حمولة تصل إلى 80 طن | خيارات قابلة للتمديد" },
+  { id: "pr11", name: "Electric Transformers", arabicName: "محولات كهربائية", category: "Power Equipment", arabicCategory: "معدات الطاقة", description: "Step-up/step-down power transformers for industrial and utility substations.", arabicDescription: "محولات طاقة رافعة/خافضة للمحطات الصناعية والمرافق العامة.", specs: "11kV–132kV | Oil & dry-type", arabicSpecs: "11–132 كيلوفولت | زيتية وجافة" },
+  { id: "pr12", name: "Safety & PPE Supplies", arabicName: "معدات السلامة ومستلزمات الوقاية", category: "Safety Equipment", arabicCategory: "معدات السلامة", description: "Full range of personal protective equipment and site safety materials.", arabicDescription: "مجموعة كاملة من معدات الحماية الشخصية ومواد سلامة المواقع.", specs: "EN/ANSI certified | Hard hats, harnesses, eyewear", arabicSpecs: "معتمدة EN/ANSI | خوذات وتسخير ونظارات" },
+  { id: "pr13", name: "Water Treatment Plants", arabicName: "محطات معالجة المياه", category: "Industrial Materials", arabicCategory: "مواد صناعية", description: "Modular desalination and water recycling systems for industrial use.", arabicDescription: "أنظمة تحلية مياه وإعادة تدوير معيارية للاستخدام الصناعي.", specs: "1,000–50,000 m³/day capacity", arabicSpecs: "طاقة 1,000–50,000 م³/يوم" },
+  { id: "pr14", name: "Pre-engineered Steel Buildings", arabicName: "مباني فولاذية مهندسة مسبقاً", category: "Construction", arabicCategory: "البناء والتشييد", description: "Custom-designed prefab steel structures for warehouses and factories.", arabicDescription: "هياكل فولاذية مسبقة الصنع مصممة حسب الطلب للمستودعات والمصانع.", specs: "Spans up to 80m | 30-year structural warranty", arabicSpecs: "فترات تصل إلى 80م | ضمان هيكلي 30 عاماً" },
+  { id: "pr15", name: "Automated Gate Systems", arabicName: "أنظمة بوابات آلية", category: "Logistics Equipment", arabicCategory: "معدات لوجستية", description: "RFID-integrated gate management systems for logistics parks and ports.", arabicDescription: "أنظمة إدارة بوابات مدمجة بتقنية RFID لمنتزهات اللوجستيات والموانئ.", specs: "RFID + ANPR | 99.8% uptime SLA", arabicSpecs: "RFID + ANPR | اتفاقية خدمة 99.8% وقت تشغيل" }
 ];
 
 export const mockPartners: { name: string; logo: string }[] = [
