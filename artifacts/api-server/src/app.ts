@@ -1,13 +1,12 @@
-import express, { type Express } from "express";
+import express from "express";
 import cors from "cors";
-import * as pinoHttp from "pino-http";
+import pinoHttp from "pino-http";
 import router from "./routes";
 import { logger } from "./lib/logger";
 
-const app: Express = express();
+const app = express();
 
-app.use(
-(pinoHttp as any)({
+const loggerMiddleware = pinoHttp({
 logger,
 serializers: {
 req(req: any) {
@@ -23,8 +22,9 @@ statusCode: res.statusCode,
 };
 },
 },
-}),
-);
+});
+
+app.use(loggerMiddleware);
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
