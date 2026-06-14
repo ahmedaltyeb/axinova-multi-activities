@@ -74,7 +74,7 @@ export const mockProjects = [
     description: "A $400M expansion project increasing production capacity by 2M tons annually.",
     arabicDescription: "مشروع توسعة بقيمة 400 مليون دولار يرفع طاقة الإنتاج بمقدار مليوني طن سنوياً.",
     status: "completed",
-    imageUrl: "https://images.unsplash.com/photo-1533422902779-babd002f6ae1?auto=format&fit=crop&w=800&q=80"
+    imageUrl: `${import.meta.env.BASE_URL}images/jubail_steel_plant_expansion.png`
   },
   {
     id: "p2",
@@ -88,7 +88,7 @@ export const mockProjects = [
     description: "State-of-the-art automated warehousing facility spanning 500,000 sq ft.",
     arabicDescription: "منشأة تخزين آلية متطورة تمتد على مساحة 500,000 قدم مربع.",
     status: "ongoing",
-    imageUrl: "https://images.unsplash.com/photo-1586528116311-ad8ed745eb33?auto=format&fit=crop&w=800&q=80"
+    imageUrl: `${import.meta.env.BASE_URL}images/port_salalah_logistics_hub.png`
   },
   {
     id: "p3",
