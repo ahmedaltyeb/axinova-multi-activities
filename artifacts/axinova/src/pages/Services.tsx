@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle, Layers, ShieldCheck, Clock4, Handshake } from 
 import { useLang } from "@/context/LanguageContext";
 import SectionWrapper, { SectionHeading } from "@/components/SectionWrapper";
 import { mockServices } from "@/data/mockData";
+import { useSEO } from "@/hooks/useSEO";
 
 const sectors = [
   { key: "Industrial", en: "Industrial", ar: "الصناعة" },
@@ -29,6 +30,7 @@ const differentiators = [
 
 export default function Services() {
   const { t } = useLang();
+  useSEO("/services");
 
   return (
     <div className="pt-16">

@@ -4,6 +4,7 @@ import { TrendingUp, Globe2, DollarSign, BarChart2 } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
 import SectionWrapper, { SectionHeading } from "@/components/SectionWrapper";
 import StatCounter from "@/components/StatCounter";
+import { useSEO } from "@/hooks/useSEO";
 
 const roadmap = [
   { year: "2024", en: "Complete Jubail and Dubai mega-projects. Achieve AED 10B revenue milestone.", ar: "إتمام مشروعي الجبيل ودبي الكبيرين. تحقيق هدف الإيرادات 10 مليار درهم." },
@@ -28,6 +29,7 @@ const financialMetrics = [
 
 export default function Investors() {
   const { t } = useLang();
+  useSEO("/investors");
   const [sent, setSent] = useState(false);
 
   return (

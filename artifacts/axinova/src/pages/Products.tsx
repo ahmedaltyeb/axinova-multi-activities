@@ -4,6 +4,7 @@ import { useLang } from "@/context/LanguageContext";
 import SectionWrapper, { SectionHeading } from "@/components/SectionWrapper";
 import { mockProducts } from "@/data/mockData";
 import { Package } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
 
 const categories = ["All", ...Array.from(new Set(mockProducts.map((p) => p.category)))];
 
@@ -20,6 +21,7 @@ const categoryTranslations: Record<string, string> = {
 
 export default function Products() {
   const { t } = useLang();
+  useSEO("/products");
   const [active, setActive] = useState("All");
 
   const filtered = active === "All" ? mockProducts : mockProducts.filter((p) => p.category === active);

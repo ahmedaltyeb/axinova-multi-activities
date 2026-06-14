@@ -3,6 +3,7 @@ import { Factory, Globe, Wrench, Truck, Building2, Check } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
 import SectionWrapper, { SectionHeading } from "@/components/SectionWrapper";
 import { mockSectors } from "@/data/mockData";
+import { useSEO } from "@/hooks/useSEO";
 
 const iconMap: Record<string, React.FC<{ size?: number; className?: string }>> = {
   Factory, Globe, Wrench, Truck, Building2
@@ -10,6 +11,7 @@ const iconMap: Record<string, React.FC<{ size?: number; className?: string }>> =
 
 export default function Industries() {
   const { t } = useLang();
+  useSEO("/industries");
 
   return (
     <div className="pt-16">
@@ -85,7 +87,7 @@ export default function Industries() {
                       "https://images.unsplash.com/photo-1586528116311-ad8ed745eb33?auto=format&fit=crop&w=800&q=80",
                       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
                     ][i]}
-                    alt={sector.name}
+                    alt={t(`Axinova ${sector.name} sector — industrial operations in GCC`, `قطاع ${sector.arabicName} في أكسينوفا — عمليات صناعية في الخليج`)}
                     className="w-full h-full object-cover"
                   />
                 </div>

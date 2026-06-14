@@ -4,6 +4,7 @@ import { Calendar, User, ArrowRight, Mail } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
 import SectionWrapper, { SectionHeading } from "@/components/SectionWrapper";
 import { mockNews } from "@/data/mockData";
+import { useSEO } from "@/hooks/useSEO";
 
 const categories = ["All", "Business", "Operations", "Sustainability", "Partnerships", "Quality", "Corporate", "Careers", "Financial"];
 
@@ -67,6 +68,7 @@ function NewsletterSignup() {
 
 export default function News() {
   const { t } = useLang();
+  useSEO("/news");
   const [active, setActive] = useState("All");
   const [selected, setSelected] = useState<typeof mockNews[0] | null>(null);
 

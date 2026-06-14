@@ -4,6 +4,7 @@ import { MapPin, Calendar, CheckCircle, Clock, LayoutGrid } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
 import SectionWrapper from "@/components/SectionWrapper";
 import { mockProjects } from "@/data/mockData";
+import { useSEO } from "@/hooks/useSEO";
 
 const categories = [
   { en: "All",               ar: "الكل" },
@@ -16,6 +17,7 @@ const categories = [
 
 export default function Projects() {
   const { t } = useLang();
+  useSEO("/projects");
   const [active, setActive] = useState("All");
 
   const filtered = active === "All" ? mockProjects : mockProjects.filter((p) => p.category === active);

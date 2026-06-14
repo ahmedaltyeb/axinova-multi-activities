@@ -4,6 +4,7 @@ import { useLang } from "@/context/LanguageContext";
 import SectionWrapper, { SectionHeading } from "@/components/SectionWrapper";
 import { mockTeam } from "@/data/mockData";
 import { User, Leaf, ShieldCheck, Award } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
 
 const milestones = [
   { year: "1999", en: "Founded in Riyadh as a civil contracting firm.", ar: "التأسيس في الرياض كشركة مقاولات مدنية." },
@@ -30,6 +31,7 @@ const certifications = [
 
 export default function About() {
   const { t } = useLang();
+  useSEO("/about");
 
   return (
     <div className="pt-16">
@@ -75,7 +77,7 @@ export default function About() {
           <div className="relative aspect-square rounded-xl overflow-hidden">
             <img
               src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
-              alt="Axinova headquarters"
+              alt={t("Axinova regional headquarters — King Abdullah Financial District, Riyadh", "مقر أكسينوفا الإقليمي — حي الملك عبدالله المالي، الرياض")}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[hsl(220,60%,8%)]/30 to-transparent" />

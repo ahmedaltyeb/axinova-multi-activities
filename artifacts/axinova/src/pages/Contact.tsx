@@ -3,6 +3,10 @@ import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, Building2, TrendingUp, Users, FileText } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
 import SectionWrapper from "@/components/SectionWrapper";
+import { useSEO } from "@/hooks/useSEO";
+import { getLocalBusinessSchema } from "@/lib/seo";
+
+const CONTACT_SCHEMAS = [getLocalBusinessSchema()];
 
 type FormType = "general" | "quote" | "investor" | "career";
 
@@ -37,6 +41,7 @@ function FormSuccess({ onReset, t }: { onReset: () => void; t: (a: string, b: st
 
 export default function Contact() {
   const { t } = useLang();
+  useSEO("/contact", CONTACT_SCHEMAS);
   const [activeTab, setActiveTab] = useState<FormType>("general");
   const [submitted, setSubmitted] = useState(false);
 

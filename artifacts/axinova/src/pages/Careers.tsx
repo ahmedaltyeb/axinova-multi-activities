@@ -4,6 +4,7 @@ import { MapPin, Briefcase, Clock, ChevronDown, ChevronUp, Upload, Plane, Gradua
 import { useLang } from "@/context/LanguageContext";
 import SectionWrapper, { SectionHeading } from "@/components/SectionWrapper";
 import { mockCareers } from "@/data/mockData";
+import { useSEO } from "@/hooks/useSEO";
 
 const benefits = [
   { icon: TrendingUp, en: "Career Growth", ar: "النمو الوظيفي", desc_en: "Structured progression paths across all five business sectors with clear promotion timelines.", desc_ar: "مسارات ترقي منظمة عبر القطاعات الخمسة مع جداول زمنية واضحة للترقية." },
@@ -16,6 +17,7 @@ const benefits = [
 
 export default function Careers() {
   const { t } = useLang();
+  useSEO("/careers");
   const [expanded, setExpanded] = useState<string | null>(null);
   const [applying, setApplying] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState<string | null>(null);

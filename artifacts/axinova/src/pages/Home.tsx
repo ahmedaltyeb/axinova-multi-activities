@@ -6,6 +6,7 @@ import SectionWrapper, { SectionHeading } from "@/components/SectionWrapper";
 import StatCounter from "@/components/StatCounter";
 import Marquee from "@/components/Marquee";
 import { mockSectors, mockProjects, mockStats, mockPartners } from "@/data/mockData";
+import { useSEO } from "@/hooks/useSEO";
 
 const iconMap: Record<string, React.FC<{ size?: number; className?: string }>> = {
   Factory, Globe, Wrench, Truck, Building2
@@ -42,6 +43,7 @@ const testimonials = [
 
 export default function Home() {
   const { t } = useLang();
+  useSEO("/");
 
   return (
     <div className="pt-16">
@@ -223,7 +225,7 @@ export default function Home() {
           <div className="relative aspect-video rounded-xl overflow-hidden bg-[hsl(220,50%,14%)]">
             <img
               src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80"
-              alt="Axinova operations"
+              alt={t("Axinova industrial operations and project management across the GCC", "عمليات أكسينوفا الصناعية وإدارة المشاريع عبر منطقة الخليج")}
               className="w-full h-full object-cover opacity-70"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-[hsl(220,60%,8%)]/60 to-transparent" />
