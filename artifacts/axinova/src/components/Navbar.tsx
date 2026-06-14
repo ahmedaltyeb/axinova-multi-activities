@@ -82,8 +82,8 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Toggle */}
-          <div className="lg:hidden flex items-center gap-2">
+          {/* Mobile header controls — always visible, never inside the dropdown */}
+          <div className="lg:hidden flex items-center gap-1">
             <button
               onClick={toggleTheme}
               aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
@@ -91,6 +91,14 @@ export default function Navbar() {
               data-testid="nav-mobile-theme-toggle"
             >
               {isDark ? <Sun size={17} /> : <Moon size={17} />}
+            </button>
+            <button
+              onClick={() => setLang(lang === "en" ? "ar" : "en")}
+              className="px-2.5 py-1 text-xs font-medium border border-white/20 rounded-md text-white/70 hover:text-white hover:border-white/40 transition-colors"
+              data-testid="nav-mobile-lang"
+              aria-label={lang === "en" ? "Switch to Arabic" : "Switch to English"}
+            >
+              {lang === "en" ? "ع" : "EN"}
             </button>
             <button
               className="text-white p-2"
@@ -120,18 +128,11 @@ export default function Navbar() {
               {t(link.en, link.ar)}
             </Link>
           ))}
-          <div className="flex items-center gap-3 mt-4">
-            <button
-              onClick={() => setLang(lang === "en" ? "ar" : "en")}
-              className="px-3 py-1.5 text-sm border border-white/20 rounded-md text-white/70 hover:text-white transition-colors"
-              data-testid="nav-mobile-lang"
-            >
-              {lang === "en" ? "العربية" : "English"}
-            </button>
+          <div className="mt-4">
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="px-4 py-2 text-sm font-semibold bg-[hsl(42,90%,50%)] text-[hsl(220,60%,10%)] rounded-md"
+              className="inline-block px-4 py-2 text-sm font-semibold bg-[hsl(42,90%,50%)] text-[hsl(220,60%,10%)] rounded-md"
               data-testid="nav-mobile-cta"
             >
               {t("Get in Touch", "تواصل معنا")}
